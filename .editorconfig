@@ -1,0 +1,7 @@
+﻿[*.{cs,vb}]
+
+# IDE0049: Semplifica nomi
+dotnet_style_predefined_type_for_member_access = true:none
+
+# IDE0049: Semplifica nomi
+dotnet_style_predefined_type_for_locals_parameters_members = true:none

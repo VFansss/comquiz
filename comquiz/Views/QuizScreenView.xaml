@@ -1,0 +1,109 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="768"
+             x:Class="comquiz.Views.QuizScreenView"
+             xmlns:local="clr-namespace:comquiz">
+
+  <UserControl.Resources>
+    <local:SpoilAnswersConverter x:Key="SpoilAnswersConverter"/>
+  </UserControl.Resources>
+  
+  <Grid RowDefinitions="1* 1.5* 5* 6.5* 1.5*" Background="LightGreen" ShowGridLines="True">
+
+    <Button Grid.Row="0" Command="{Binding TerminateQuiz}">
+      Termina Quiz
+    </Button>
+
+    <Viewbox Grid.Row="1" Stretch="Uniform">
+
+      <TextBlock Text="{Binding CurrentQuiz.Title}"/>
+
+    </Viewbox>
+
+    <Grid Grid.Row="2" RowDefinitions="* 30" ShowGridLines="True">
+
+      <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+
+        <TextBlock TextAlignment="Center" TextWrapping="Wrap" FontSize="15" Text="{Binding CurrentQuestion.QuestionBody}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+      </ScrollViewer>
+
+      <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+
+        <TextBlock Text="Risposte giuste a questa domanda: "/>
+        <TextBlock Text="{Binding CurrentQuestion.NumberOfRightAnswers}"/>
+        
+      </StackPanel>
+      
+      
+    </Grid>
+
+    <Grid Grid.Row="3">
+
+      <ListBox x:Name="lst_answers" SelectionMode="Multiple, Toggle" IsHitTestVisible="{Binding AnsweringEnabled}" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0" Cursor="Hand" Items="{Binding CurrentQuestion.PersonalizedAnswersList}">
+
+        <ListBox.ItemsPanel>
+
+          <ItemsPanelTemplate>
+
+            <WrapPanel Background="Red" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical"/>
+
+          </ItemsPanelTemplate>
+
+        </ListBox.ItemsPanel>
+
+        <ListBox.ItemTemplate>
+
+          <DataTemplate>
+
+            <StackPanel Margin="15 10 5 10">
+
+              <!-- Normally visible answer -->
+              <TextBlock Text="{Binding AnswerBody}" IsVisible="{Binding !$parent[ItemsControl].DataContext.SpoilRightAnswer}" />
+
+              <!-- Answer visible when 'Spoil answer' is active -->
+              <TextBlock
+                Text="{Binding AnswerBody}"
+                
+                Foreground="{Binding IsTheRightAnswer,
+                            Converter={StaticResource SpoilAnswersConverter},
+                            ConverterParameter=Foreground}"
+                
+                FontWeight="{Binding IsTheRightAnswer,
+                            Converter={StaticResource SpoilAnswersConverter},
+                            ConverterParameter=FontWeight}"
+                
+                IsVisible="{Binding $parent[ItemsControl].DataContext.SpoilRightAnswer}"/>
+
+            </StackPanel>
+            
+          </DataTemplate>
+          
+        </ListBox.ItemTemplate>
+        
+      </ListBox>
+      
+    </Grid>
+
+    <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+
+      <Button Grid.Row="0" Command="{Binding ShowAnswers}" Content="Svela le risposte"/>
+
+      <StackPanel Grid.Row="1" Margin="30 0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+
+        <TextBlock FontSize="15" Text="Domanda "/>
+        <TextBlock FontSize="15" Text="{Binding CurrentQuestionNumber}"/>
+        <TextBlock FontSize="15" Text=" su "/>
+        <TextBlock FontSize="15" Text="{Binding CurrentQuiz.PersonalizedQuestionsList.Count}"/>
+
+      </StackPanel>
+
+      <Button Grid.Row="0" Command="{Binding NextQuestion}" Content="Prossima domanda"/>
+        
+    </StackPanel>
+
+  </Grid>
+  
+</UserControl>
