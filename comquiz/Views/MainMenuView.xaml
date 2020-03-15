@@ -37,6 +37,13 @@
 
         <TextBlock FontSize="30" Text="{Binding $parent[Window].DataContext.CurrentQuiz.Title}" HorizontalAlignment="Center"/>
 
+        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+
+          <TextBlock HorizontalAlignment="Center" Text="Numero domande: "/>
+          <TextBlock HorizontalAlignment="Center" Text="{Binding $parent[Window].DataContext.CurrentQuiz.OriginalQuestionsList.Count}"/>
+
+        </StackPanel>
+
         <TextBlock Margin="0 30 0 -10" Text="Seleziona le opzioni:" HorizontalAlignment="Center"/>
 
         <StackPanel Orientation="Vertical">
@@ -148,13 +155,6 @@
             <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Sixth}}}" GroupName="QuizPartial" Content="6a parte" IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Sixth}}}"/>
             
           </StackPanel>
-          
-        </StackPanel>
-
-        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
-
-          <TextBlock HorizontalAlignment="Center" Text="Numero domande: "/>
-          <TextBlock HorizontalAlignment="Center" Text="{Binding $parent[Window].DataContext.CurrentQuiz.OriginalQuestionsList.Count}"/>
           
         </StackPanel>
 
