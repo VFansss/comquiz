@@ -143,22 +143,6 @@ namespace comquiz
 
                 IsQuizWellFormed = true;
 
-                // TODO REMOVE THIS
-                /*// DIVIDE QUIZ BASED ON PART DECISION
-
-                if (quizQuarter != PIECEOFQUIZ.Entire)
-                {
-                    // I must divide the quiz.
-
-                    QuestionList = QuizSheet.SplitTheQuiz(QuestionList, quizQuarter, quizPart);
-
-                }
-
-                if (randomizeQuestions)
-                {
-                    QuestionList.Shuffle<QuestionSheet>();
-                }*/
-
             }
 
             catch(Exception ex)
@@ -328,10 +312,16 @@ namespace comquiz
 
             if (Preferences != null)
             {
+                if (Preferences.QuizPart != QUIZPART.Entire)
+                {
+                    generatedQuestionList = SplitTheQuiz(generatedQuestionList, Preferences.QuizPart, Preferences.QuizPartial);
+                }
+
                 if (Preferences.RandomizeQuestionsOrder)
                 {
                     generatedQuestionList.Shuffle<QuestionSheet>().ToList<QuestionSheet>();
                 }
+            
             }
 
             PersonalizedQuestionsList = generatedQuestionList;
