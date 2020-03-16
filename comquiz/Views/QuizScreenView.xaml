@@ -10,7 +10,7 @@
     <local:SpoilAnswersConverter x:Key="SpoilAnswersConverter"/>
   </UserControl.Resources>
   
-  <Grid RowDefinitions="1* 1.5* 5* 6.5* 1.5*" Background="LightGreen" ShowGridLines="True">
+  <Grid RowDefinitions="1* 1.5* 5* 6.5* 1.5*" ShowGridLines="True">
 
     <Button Grid.Row="0" Command="{Binding TerminateQuiz}">
       Termina Quiz
@@ -48,7 +48,7 @@
 
           <ItemsPanelTemplate>
 
-            <WrapPanel Background="Red" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical"/>
+            <WrapPanel Margin="30" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical"/>
 
           </ItemsPanelTemplate>
 
