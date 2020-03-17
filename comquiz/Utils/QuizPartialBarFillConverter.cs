@@ -66,8 +66,8 @@ namespace comquiz
 
             }
 
-            if (partialBarSelected) return new SolidColorBrush(Color.FromRgb(8, 90, 147));
-            else return new SolidColorBrush(Color.FromRgb(130, 176, 232));
+            if (partialBarSelected) return new SolidColorBrush(Color.FromRgb(7, 142, 255));
+            else return new SolidColorBrush(Color.FromRgb(155, 210, 255));
 
         }
 

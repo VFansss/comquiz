@@ -24,7 +24,7 @@ namespace comquiz
                     }
                     else
                     {
-                        returningValue = new SolidColorBrush(Colors.Black);
+                        returningValue = new SolidColorBrush(Colors.White);
                     }
                 }
                 else if (parameter.ToString().Equals("FontWeight"))

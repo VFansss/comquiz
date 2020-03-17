@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         d:DesignWidth="800"
-        d:DesignHeight="450"
+        d:DesignHeight="600"
         MinWidth="800"
         MinHeight="600"
         x:Class="comquiz.Views.MainWindow"
@@ -13,11 +13,6 @@
         Title="comquiz"
         >
 
-  <Border BorderBrush="Red"
-          BorderThickness="4">
-
-    <UserControl Content="{Binding MainWindowContent}"/>
-    
-  </Border>
+  <UserControl Content="{Binding MainWindowContent}"/>
 
 </Window>

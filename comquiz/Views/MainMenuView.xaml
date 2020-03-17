@@ -14,11 +14,11 @@
     <local:QuizPartialBarFillConverter x:Key="QuizPartialBarFillConverter"/>
   </UserControl.Resources>
 
-  <Grid RowDefinitions="2* 8*" ShowGridLines="True">
+  <Grid RowDefinitions="1.5* 8.5*" ShowGridLines="False">
 
     <Viewbox Grid.Row="0" Height="50" Stretch="Uniform" Margin="10">
 
-      <Path Fill="Black" Data="{Binding Data, Source={StaticResource comquiz_logo}}"/>
+      <Path Fill="{DynamicResource HighlightBrush}" Data="{Binding Data, Source={StaticResource comquiz_logo}}"/>
 
     </Viewbox>
 
@@ -34,7 +34,7 @@
 
         <TextBlock Text="Quiz caricato:" HorizontalAlignment="Center"/>
 
-        <TextBlock Foreground="#5470FD" Margin="10 0" FontSize="30" Text="{Binding $parent[Window].DataContext.CurrentQuiz.Title}" HorizontalAlignment="Center"/>
+        <TextBlock Foreground="{DynamicResource ThemeBorderMidBrush}" Margin="10 0" FontSize="30" Text="{Binding $parent[Window].DataContext.CurrentQuiz.Title}" HorizontalAlignment="Center"/>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
@@ -43,17 +43,17 @@
 
         </StackPanel>
 
-        <TextBlock Margin="0 30 0 0" Text="Seleziona le opzioni:" HorizontalAlignment="Center"/>
+        <TextBlock Margin="0 20 0 0" Text="Seleziona le opzioni:" HorizontalAlignment="Center"/>
 
         <StackPanel HorizontalAlignment="Center">
         
-        <CheckBox Name="chb_randomizeQuestions" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeQuestionsOrder}" Margin="0 20 0 0">
+        <CheckBox Name="chb_randomizeQuestions" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeQuestionsOrder}" Margin="0 10 0 0">
 
           <TextBlock Margin="5 0 0 0" Text="Randomizza ordine domande"/>
 
         </CheckBox>
 
-        <CheckBox Name="chb_randomizeAnswers" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeAnswersOrder}" Margin="0 20 0 0">
+        <CheckBox Name="chb_randomizeAnswers" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeAnswersOrder}" Margin="0 10 0 0">
 
           <TextBlock Margin="5 0 0 0" Text="Randomizza ordine risposte"/>
 
@@ -61,7 +61,7 @@
 
         </StackPanel>
 
-        <TextBlock Margin="0 30 0 5" Text="Parte del quiz da affrontare:"/>
+        <TextBlock Margin="0 20 0 5" Text="Parte del quiz da affrontare:"/>
         <Grid Grid.Column="6" ColumnDefinitions="1* 1* 1* 1* 1* 1*" Height="10">
 
           <Rectangle Grid.Column="0">
@@ -197,7 +197,7 @@
             
         </StackPanel>
 
-        <Button FontSize="18" Grid.Row="1" Margin="0 20 0 0" HorizontalAlignment="Center" Command="{Binding $parent[Window].DataContext.DisplayQuizScreen}">
+        <Button FontSize="18" Grid.Row="1" Margin="0 10 0 0" HorizontalAlignment="Center" Command="{Binding $parent[Window].DataContext.DisplayQuizScreen}">
           Start Quiz
         </Button>
         
