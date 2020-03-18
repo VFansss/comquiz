@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              d:DesignWidth="800"
-             d:DesignHeight="450"
+             d:DesignHeight="600"
              x:Class="comquiz.Views.MainMenuView"
              xmlns:local="clr-namespace:comquiz">
 
@@ -14,9 +14,9 @@
     <local:QuizPartialBarFillConverter x:Key="QuizPartialBarFillConverter"/>
   </UserControl.Resources>
 
-  <Grid RowDefinitions="1.5* 8.5*" ShowGridLines="False">
+  <Grid RowDefinitions="1.5* 8.3* 0.3*" ShowGridLines="False">
 
-    <Viewbox Grid.Row="0" Height="50" Stretch="Uniform" Margin="10">
+    <Viewbox Grid.Row="0" Stretch="Uniform" Margin="20">
 
       <Path Fill="{DynamicResource HighlightBrush}" Data="{Binding Data, Source={StaticResource comquiz_logo}}"/>
 
@@ -204,7 +204,9 @@
       </StackPanel>
       
     </StackPanel>
-    
+
+    <TextBlock Grid.Row="2" VerticalAlignment="Center" TextAlignment="Center" Foreground="{DynamicResource HighlightBrush}" Text="{Binding Version}"/>
+
   </Grid>
   
 </UserControl>

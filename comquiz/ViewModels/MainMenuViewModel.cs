@@ -10,14 +10,17 @@ namespace comquiz.ViewModels
     {
         readonly MainWindowViewModel MainDatacontext;
 
-
-
-
+        public string _version = "v200318";
+        public string Version
+        {
+            get => _version;
+        }
 
 
         public MainMenuViewModel(MainWindowViewModel parentDataContext)
         {
             MainDatacontext = parentDataContext;
+
         }
 
         public async void PickQuizFromFile(Window parameter)
