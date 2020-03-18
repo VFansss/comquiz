@@ -43,25 +43,7 @@
 
         </StackPanel>
 
-        <TextBlock Margin="0 20 0 0" Text="Seleziona le opzioni:" HorizontalAlignment="Center"/>
-
-        <StackPanel HorizontalAlignment="Center">
-        
-        <CheckBox Name="chb_randomizeQuestions" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeQuestionsOrder}" Margin="0 10 0 0">
-
-          <TextBlock Margin="5 0 0 0" Text="Randomizza ordine domande"/>
-
-        </CheckBox>
-
-        <CheckBox Name="chb_randomizeAnswers" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeAnswersOrder}" Margin="0 10 0 0">
-
-          <TextBlock Margin="5 0 0 0" Text="Randomizza ordine risposte"/>
-
-        </CheckBox>
-
-        </StackPanel>
-
-        <TextBlock Margin="0 20 0 5" Text="Parte del quiz da affrontare:"/>
+        <TextBlock Margin="0 20 0 0" Text="Parte del quiz da affrontare:"/>
         <Grid Grid.Column="6" ColumnDefinitions="1* 1* 1* 1* 1* 1*" Height="10">
 
           <Rectangle Grid.Column="0">
@@ -197,7 +179,25 @@
             
         </StackPanel>
 
-        <Button FontSize="18" Grid.Row="1" Margin="0 10 0 0" HorizontalAlignment="Center" Command="{Binding $parent[Window].DataContext.DisplayQuizScreen}">
+        <TextBlock Margin="0 20 0 0" Text="Seleziona le opzioni:" HorizontalAlignment="Center"/>
+
+        <StackPanel HorizontalAlignment="Center">
+
+          <CheckBox Name="chb_randomizeQuestions" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeQuestionsOrder}" Margin="0 10 0 0">
+
+            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine domande"/>
+
+          </CheckBox>
+
+          <CheckBox Name="chb_randomizeAnswers" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeAnswersOrder}" Margin="0 10 0 0">
+
+            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine risposte"/>
+
+          </CheckBox>
+
+        </StackPanel>
+
+        <Button FontSize="18" Grid.Row="1" Margin="0 25 0 0" HorizontalAlignment="Center" Command="{Binding $parent[Window].DataContext.DisplayQuizScreen}">
           Start Quiz
         </Button>
         
