@@ -185,13 +185,13 @@
 
           <CheckBox Name="chb_randomizeQuestions" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeQuestionsOrder}" Margin="0 10 0 0">
 
-            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine domande"/>
+            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine domande" Cursor="Help" ToolTip.Placement="Bottom" ToolTip.Tip="Prendi l'insieme delle domande selezionato in alto e randomizzane l'ordine di visualizzazione"/>
 
           </CheckBox>
 
           <CheckBox Name="chb_randomizeAnswers" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeAnswersOrder}" Margin="0 10 0 0">
 
-            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine risposte"/>
+            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine risposte" Cursor="Help" ToolTip.Placement="Bottom" ToolTip.Tip="Rimuovi annotazioni di lista dal testo della risposta (e.g. 1) o 2) oppure A. o B. ) e randomizzane l'ordine di visualizzazione"/>
 
           </CheckBox>
 
