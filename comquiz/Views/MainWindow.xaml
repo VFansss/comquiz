@@ -10,8 +10,7 @@
         MinHeight="600"
         x:Class="comquiz.Views.MainWindow"
         Icon="/Assets/comquiz-icon.ico"
-        Title="comquiz"
-        >
+        Title="Comquiz">
 
   <UserControl Content="{Binding MainWindowContent}"/>
 
