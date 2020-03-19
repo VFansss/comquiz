@@ -1,0 +1,74 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="comquiz.Views.AboutScreenView">
+
+  <UserControl.Styles>
+
+    <Style Selector="TextBlock.personal">
+      <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+  </UserControl.Styles>
+  
+  <DockPanel Margin="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+    <DockPanel.Styles>
+
+      <Style Selector="Button">
+        <Setter Property="Margin" Value="0 10"/>
+        <Setter Property="DockPanel.Dock" Value="Top"/>
+      </Style>
+
+      <Style Selector="DockPanel > TextBlock">
+        <Setter Property="Margin" Value="0 10"/>
+        <Setter Property="Foreground" Value="{DynamicResource HighlightBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="DockPanel.Dock" Value="Top"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+      </Style>
+      
+    </DockPanel.Styles>
+
+    <Button FontSize="14" Command="{Binding $parent[Window].DataContext.DisplayMainMenu}">
+      Return to Main Menu
+    </Button>
+    
+    <TextBlock FontSize="52" Text="Thanks &amp; Legal"/>
+    
+    <TextBlock Classes="personal">
+      A huge thank you to the Avalonia UI community for the tremendous help and understanding they gave me during my learning
+    </TextBlock>
+
+    <TextBlock Classes="personal">
+      Thank you to all those who heard me complaining during the construction of this software, and who have anxiously awaited its release (?)
+    </TextBlock>
+
+    <TextBlock Classes="personal">
+      Thank you to everyone who uses this program
+    </TextBlock>
+
+    <TextBlock Classes="personal" FontWeight="Bold">
+      Built with &lt;3
+    </TextBlock>
+
+    <TextBlock>
+      Comquiz is released under MIT Licence: Copyright (c) 2020 Alessio Di Giacomo
+    </TextBlock>
+
+    <TextBlock>
+      This software make use of Avalonia UI, granted under MIT licence: Copyright (c) 2014 Steven Kirk
+    </TextBlock>
+
+    <TextBlock>
+      This software make use of MessageBox.Avalonia, granted under MIT licence: Copyright (c) 2019 roman
+    </TextBlock>
+
+  </DockPanel>
+
+</UserControl>

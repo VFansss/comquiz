@@ -8,9 +8,9 @@ namespace comquiz.ViewModels
 {
     class MainMenuViewModel : ViewModelBase
     {
-        readonly MainWindowViewModel MainDatacontext;
+        readonly public MainWindowViewModel MainDatacontext;
 
-        public string _version = "v200318";
+        public string _version = "v200319";
         public string Version
         {
             get => _version;

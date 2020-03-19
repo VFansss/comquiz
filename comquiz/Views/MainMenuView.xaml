@@ -14,7 +14,7 @@
     <local:QuizPartialBarFillConverter x:Key="QuizPartialBarFillConverter"/>
   </UserControl.Resources>
 
-  <Grid RowDefinitions="1.5* 8.3* 0.3*" ShowGridLines="False">
+  <Grid RowDefinitions="1.5* 8.0* 0.5*" ShowGridLines="False">
 
     <Viewbox Grid.Row="0" Stretch="Uniform" Margin="20">
 
@@ -205,7 +205,27 @@
       
     </StackPanel>
 
-    <TextBlock Grid.Row="2" VerticalAlignment="Center" TextAlignment="Center" Foreground="{DynamicResource HighlightBrush}" Text="{Binding Version}"/>
+    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+      <StackPanel.Styles>
+
+        <Style Selector="TextBlock">
+          <Setter Property="Foreground" Value="{DynamicResource HighlightBrush}"/>
+          <Setter Property="Margin" Value="5"/>
+        </Style>
+        
+      </StackPanel.Styles>
+      
+      <TextBlock Text="{Binding Version}"/>
+      <TextBlock Text="-"/>
+
+      <Border BorderBrush="{DynamicResource HighlightBrush}" Cursor="Hand" BorderThickness="0 0 0 2" Padding="0">
+        <TextBlock x:Name="txt_about" Text="Thanks &amp; Legal"/>
+      </Border>
+
+
+    </StackPanel>
+    
 
   </Grid>
   
