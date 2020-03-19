@@ -13,9 +13,9 @@ namespace comquiz
         {
             bool partialBarSelected = false;
 
-            if (values != null && values.Count == 2)
+            if (values != null && values.Count == 2 && values[0] is QUIZPART && values[1] is QUIZPARTIAL)
             {
-                if (Enum.IsDefined(typeof(QUIZPART), values[0]) && Enum.IsDefined(typeof(QUIZPART), values[1]))
+                if (Enum.IsDefined(typeof(QUIZPART), values[0]) && Enum.IsDefined(typeof(QUIZPARTIAL), values[1]))
                 {
                     QUIZPART selectedQuizPart = (QUIZPART)values[0];
                     QUIZPARTIAL selectedQuizPartial = (QUIZPARTIAL)values[1];
@@ -27,13 +27,30 @@ namespace comquiz
                     }
                     else if (selectedQuizPart == QUIZPART.Half)
                     {
-                        int partialBarNumber = (int)currentPartialBar;
+                        partialBarSelected = ((int)currentPartialBar <= 3) ? true : false;
 
-                        partialBarSelected = ((3 - partialBarNumber) <= 0) ? true : false;
+                        if (selectedQuizPartial == QUIZPARTIAL.Second) // If second half...
+                        {
+                            partialBarSelected = !partialBarSelected;
+                        }
 
                     }
-                    else if (false)
+                    else if (selectedQuizPart == QUIZPART.Third)
                     {
+                        int currentPartialBarNumber = (int)currentPartialBar;
+
+                        if (selectedQuizPartial == QUIZPARTIAL.First && currentPartialBarNumber <= 2)
+                        {
+                            partialBarSelected = true;
+                        }
+                        else if (selectedQuizPartial == QUIZPARTIAL.Second && currentPartialBarNumber <= 4 && currentPartialBarNumber > 2)
+                        {
+                            partialBarSelected = true;
+                        }
+                        else if(selectedQuizPartial == QUIZPARTIAL.Third && currentPartialBarNumber > 4)
+                        {
+                            partialBarSelected = true;
+                        }
 
                     }
                     else
@@ -49,14 +66,15 @@ namespace comquiz
 
             }
 
-            if (partialBarSelected) return new SolidColorBrush(Color.FromRgb(8, 90, 147));
-            else return new SolidColorBrush(Color.FromRgb(130, 176, 232));
+            if (partialBarSelected) return new SolidColorBrush(Color.FromRgb(7, 142, 255));
+            else return new SolidColorBrush(Color.FromRgb(155, 210, 255));
 
         }
 
         public object[] ConvertBack(object values, Type[] targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return null;
         }
 
     }

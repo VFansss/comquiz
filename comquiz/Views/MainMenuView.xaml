@@ -4,10 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              d:DesignWidth="800"
-             d:DesignHeight="450"
+             d:DesignHeight="600"
              x:Class="comquiz.Views.MainMenuView"
-             xmlns:local="clr-namespace:comquiz"
-             Background="LightBlue">
+             xmlns:local="clr-namespace:comquiz">
 
   <UserControl.Resources>
     <local:QuizPreferencesEnumConverter x:Key="QuizPreferencesEnumConverter"/>
@@ -15,19 +14,19 @@
     <local:QuizPartialBarFillConverter x:Key="QuizPartialBarFillConverter"/>
   </UserControl.Resources>
 
-  <Grid RowDefinitions="2* 8*" ShowGridLines="True">
+  <Grid RowDefinitions="1.5* 8.0* 0.5*" ShowGridLines="False">
 
-    <Viewbox Grid.Row="0" Height="50" Stretch="Uniform" Margin="10">
+    <Viewbox Grid.Row="0" Stretch="Uniform" Margin="20">
 
-      <Path Fill="Black" Data="{Binding Data, Source={StaticResource comquiz_logo}}"/>
+      <Path Fill="{DynamicResource HighlightBrush}" Data="{Binding Data, Source={StaticResource comquiz_logo}}"/>
 
     </Viewbox>
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
 
-      <TextBlock TextAlignment="Center" FontSize="18" Margin="0 0 0 10">Per cominciare, seleziona un QUIZ</TextBlock>
+      <TextBlock TextAlignment="Center" FontSize="20" Margin="0 0 0 10">Per cominciare, seleziona un QUIZ</TextBlock>
 
-      <Button Grid.Row="1" Command="{Binding PickQuizFromFile}" CommandParameter="{Binding $parent[Window]}">
+      <Button Background="Transparent" HorizontalAlignment="Center" Grid.Row="1" Command="{Binding PickQuizFromFile}" CommandParameter="{Binding $parent[Window]}">
         Carica un quiz da file
       </Button>
 
@@ -35,87 +34,199 @@
 
         <TextBlock Text="Quiz caricato:" HorizontalAlignment="Center"/>
 
-        <TextBlock FontSize="30" Text="{Binding $parent[Window].DataContext.CurrentQuiz.Title}" HorizontalAlignment="Center"/>
+        <TextBlock Foreground="{DynamicResource ThemeBorderMidBrush}" Margin="10 0" FontSize="30" Text="{Binding $parent[Window].DataContext.CurrentQuiz.Title}" HorizontalAlignment="Center"/>
 
-        <TextBlock Margin="0 30 0 -10" Text="Seleziona le opzioni:" HorizontalAlignment="Center"/>
-
-        <StackPanel Orientation="Vertical">
-
-          <CheckBox Name="chb_randomizeQuestions" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeQuestionsOrder}" Margin="0 20 0 0">
-
-            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine domande"/>
-
-          </CheckBox>
-
-          <CheckBox Name="chb_randomizeAnswers" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeAnswersOrder}" Margin="0 20 0 0">
-
-            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine risposte"/>
-
-          </CheckBox>
-
-          <TextBlock Margin="0 30 0 5" Text="Parte del quiz da affrontare:"/>
-          <Grid Grid.Column="6" ColumnDefinitions="1* 1* 1* 1* 1* 1*" Height="10">
-
-            <Rectangle Grid.Column="0">
-
-              <Rectangle.Fill>
-                <MultiBinding Converter="{StaticResource QuizPartialBarFillConverter}" ConverterParameter="{x:Static local:QUIZPARTIAL.First}">
-                  <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPartial"/>
-                </MultiBinding>
-              </Rectangle.Fill>
-
-            </Rectangle>
-
-            <Rectangle Grid.Column="1" Fill="Green"/>
-            <Rectangle Grid.Column="2" Fill="Purple"/>
-            <Rectangle Grid.Column="3" Fill="Yellow"/>
-            <Rectangle Grid.Column="4" Fill="Blue"/>
-            <Rectangle Grid.Column="5" Fill="Aqua"/>
-            
-          </Grid>
-
-          <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
-            
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPART.Entire}}" Margin="20 10" GroupName="QuizPart" Content="INTERO"/>
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPART.Half}}" Margin="20 10" GroupName="QuizPart" Content="META'" />
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPART.Third}}" Margin="20 10" GroupName="QuizPart" Content="1/3" />
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPART.Sixth}}}" Margin="20 10" GroupName="QuizPart" Content="1/6" />
-          </StackPanel>
-
-          <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
-
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.First}}}" IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.First}}}"  GroupName="QuizPartial" Content="1a parte"/>
-            
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Second}}}" GroupName="QuizPartial" Content="2a parte" IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Second}}}"/>
-            
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Third}}}" GroupName="QuizPartial" Content="3a parte" IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Third}}}"/>
-            
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Forth}}}" GroupName="QuizPartial" Content="4a parte" IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Forth}}}"/>
-            
-            
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Fifth}}}" GroupName="QuizPartial" Content="5a parte" IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Fifth}}}"/>
-            
-            <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Sixth}}}" GroupName="QuizPartial" Content="6a parte" IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Sixth}}}"/>
-            
-          </StackPanel>
-          
-        </StackPanel>
-
-        <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
           <TextBlock HorizontalAlignment="Center" Text="Numero domande: "/>
           <TextBlock HorizontalAlignment="Center" Text="{Binding $parent[Window].DataContext.CurrentQuiz.OriginalQuestionsList.Count}"/>
-          
+
         </StackPanel>
 
-        <Button Grid.Row="1" Margin="0 20 0 0" Command="{Binding $parent[Window].DataContext.DisplayQuizScreen}">
+        <TextBlock Margin="0 20 0 0" Text="Parte del quiz da affrontare:"/>
+        <Grid Grid.Column="6" ColumnDefinitions="1* 1* 1* 1* 1* 1*" Height="10">
+
+          <Rectangle Grid.Column="0">
+
+            <Rectangle.Fill>
+              <MultiBinding Converter="{StaticResource QuizPartialBarFillConverter}" ConverterParameter="{x:Static local:QUIZPARTIAL.First}">
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPart"/>
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPartial"/> 
+              </MultiBinding>
+            </Rectangle.Fill>
+
+          </Rectangle>
+
+          <Rectangle Grid.Column="1">
+
+            <Rectangle.Fill>
+              <MultiBinding Converter="{StaticResource QuizPartialBarFillConverter}" ConverterParameter="{x:Static local:QUIZPARTIAL.Second}">
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPart"/>
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPartial"/>
+              </MultiBinding>
+            </Rectangle.Fill>
+
+          </Rectangle>
+
+          <Rectangle Grid.Column="2">
+
+            <Rectangle.Fill>
+              <MultiBinding Converter="{StaticResource QuizPartialBarFillConverter}" ConverterParameter="{x:Static local:QUIZPARTIAL.Third}">
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPart"/>
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPartial"/>
+              </MultiBinding>
+            </Rectangle.Fill>
+
+          </Rectangle>
+
+          <Rectangle Grid.Column="3">
+
+            <Rectangle.Fill>
+              <MultiBinding Converter="{StaticResource QuizPartialBarFillConverter}" ConverterParameter="{x:Static local:QUIZPARTIAL.Forth}">
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPart"/>
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPartial"/>
+              </MultiBinding>
+            </Rectangle.Fill>
+
+          </Rectangle>
+
+          <Rectangle Grid.Column="4">
+
+            <Rectangle.Fill>
+              <MultiBinding Converter="{StaticResource QuizPartialBarFillConverter}" ConverterParameter="{x:Static local:QUIZPARTIAL.Fifth}">
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPart"/>
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPartial"/>
+              </MultiBinding>
+            </Rectangle.Fill>
+
+          </Rectangle>
+
+          <Rectangle Grid.Column="5">
+
+            <Rectangle.Fill>
+              <MultiBinding Converter="{StaticResource QuizPartialBarFillConverter}" ConverterParameter="{x:Static local:QUIZPARTIAL.Sixth}">
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPart"/>
+                <Binding Path="$parent[Window].DataContext.ChosenPreferences.QuizPartial"/>
+              </MultiBinding>
+            </Rectangle.Fill>
+
+          </Rectangle>
+            
+        </Grid>
+
+        <!-- QUIZPART -->
+          
+        <StackPanel Orientation="Horizontal" Margin="0 10" HorizontalAlignment="Center">
+            
+            <StackPanel.Styles>
+
+              <Style Selector="RadioButton">
+                <Setter Property="Margin" Value="20 0"/>
+              </Style>
+
+            </StackPanel.Styles>
+            
+          <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPART.Entire}}" GroupName="QuizPart" Content="INTERO"/>
+          <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPART.Half}}" GroupName="QuizPart" Content="META'" />
+          <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPART.Third}}" GroupName="QuizPart" Content="1/3" />
+          <RadioButton Cursor="Hand" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPART.Sixth}}}" GroupName="QuizPart" Content="1/6" />
+        </StackPanel>
+
+        <!-- QUIZPARTIAL -->
+
+        <StackPanel Orientation="Horizontal" Margin="0 10" HorizontalAlignment="Center">
+
+          <StackPanel.Styles>
+
+            <Style Selector="RadioButton">
+              <Setter Property="Margin" Value="10 0"/>
+              <Setter Property="GroupName" Value="QuizPartial"/>
+              <Setter Property="Cursor" Value="Hand"/>
+            </Style>
+              
+          </StackPanel.Styles>
+            
+          <RadioButton
+            IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.First}}}"
+            IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.First}}}"
+            Content="1a parte"/>
+            
+          <RadioButton
+            IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Second}}}"
+            IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Second}}}"
+            Content="2a parte"/>
+            
+          <RadioButton
+            IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Third}}}"
+            IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Third}}}"
+            Content="3a parte"/>
+            
+          <RadioButton
+            IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Forth}}}"
+            IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Forth}}}"
+            Content="4a parte" />
+            
+            
+          <RadioButton
+            IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Fifth}}}"
+            IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Fifth}}}"
+            Content="5a parte"/>
+            
+          <RadioButton
+            IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPartial, Converter={StaticResource QuizPreferencesEnumConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Sixth}}}"
+            IsVisible="{Binding $parent[Window].DataContext.ChosenPreferences.QuizPart, Converter={StaticResource QuizPartialVisibilityConverter}, ConverterParameter={x:Static local:QUIZPARTIAL.Sixth}}}"
+            Content="6a parte"/>
+            
+        </StackPanel>
+
+        <TextBlock Margin="0 20 0 0" Text="Seleziona le opzioni:" HorizontalAlignment="Center"/>
+
+        <StackPanel HorizontalAlignment="Center">
+
+          <CheckBox Name="chb_randomizeQuestions" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeQuestionsOrder}" Margin="0 10 0 0">
+
+            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine domande" Cursor="Help" ToolTip.Placement="Bottom" ToolTip.Tip="Prendi l'insieme delle domande selezionato in alto e randomizzane l'ordine di visualizzazione"/>
+
+          </CheckBox>
+
+          <CheckBox Name="chb_randomizeAnswers" HorizontalAlignment="Left" IsChecked="{Binding $parent[Window].DataContext.ChosenPreferences.RandomizeAnswersOrder}" Margin="0 10 0 0">
+
+            <TextBlock Margin="5 0 0 0" Text="Randomizza ordine risposte" Cursor="Help" ToolTip.Placement="Bottom" ToolTip.Tip="Rimuovi annotazioni di lista dal testo della risposta (e.g. 1) o 2) oppure A. o B. ) e randomizzane l'ordine di visualizzazione"/>
+
+          </CheckBox>
+
+        </StackPanel>
+
+        <Button FontSize="18" Grid.Row="1" Margin="0 25 0 0" HorizontalAlignment="Center" Command="{Binding $parent[Window].DataContext.DisplayQuizScreen}">
           Start Quiz
         </Button>
         
       </StackPanel>
       
     </StackPanel>
+
+    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+      <StackPanel.Styles>
+
+        <Style Selector="TextBlock">
+          <Setter Property="Foreground" Value="{DynamicResource HighlightBrush}"/>
+          <Setter Property="Margin" Value="5"/>
+        </Style>
+        
+      </StackPanel.Styles>
+      
+      <TextBlock Text="{Binding Version}"/>
+      <TextBlock Text="-"/>
+
+      <Border BorderBrush="{DynamicResource HighlightBrush}" Cursor="Hand" BorderThickness="0 0 0 2" Padding="0">
+        <TextBlock x:Name="txt_about" Text="Thanks &amp; Legal"/>
+      </Border>
+
+
+    </StackPanel>
     
+
   </Grid>
   
 </UserControl>

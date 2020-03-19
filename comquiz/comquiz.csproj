@@ -2,6 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <ApplicationIcon>Assets\comquiz-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="**\*.xaml.cs">
@@ -13,10 +14,12 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaResource Remove="Views\AboutScreenView.xaml" />
     <AvaloniaResource Remove="Views\MainMenuView.xaml" />
     <AvaloniaResource Remove="Views\QuizScreenView.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Views\AboutScreenView.xaml" />
     <None Remove="Views\MainMenuView.xaml" />
     <None Remove="Views\QuizScreenView.xaml" />
   </ItemGroup>
@@ -42,5 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AboutScreenView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\AboutScreenView.xaml.cs">
+      <DependentUpon>AboutScreenView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

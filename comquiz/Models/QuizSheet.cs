@@ -70,6 +70,11 @@ namespace comquiz
 
                 string fileContent = File.ReadAllText(pathToQuiz,Encoding.UTF8);
 
+                if (!fileContent.StartsWith("|||||",StringComparison.InvariantCultureIgnoreCase))
+                {
+                    throw new Exception("Loaded file does not appear to be a quiz!");
+                }
+
                 string[] questionsFound = fileContent.Split(new string[] { "|||||" }, StringSplitOptions.RemoveEmptyEntries);
 
                 IsQuizWellFormed = false;
@@ -132,7 +137,7 @@ namespace comquiz
                         else
                         {
                             // Strange token
-                            throw new Exception("Unrecognized token: \n\n Incriminated row: "+token);
+                            throw new Exception("Unrecognized token:\n\nIncriminated row: "+token);
                         }
 
                     } // End foreach token
@@ -142,22 +147,6 @@ namespace comquiz
                 } // End foreach question
 
                 IsQuizWellFormed = true;
-
-                // TODO REMOVE THIS
-                /*// DIVIDE QUIZ BASED ON PART DECISION
-
-                if (quizQuarter != PIECEOFQUIZ.Entire)
-                {
-                    // I must divide the quiz.
-
-                    QuestionList = QuizSheet.SplitTheQuiz(QuestionList, quizQuarter, quizPart);
-
-                }
-
-                if (randomizeQuestions)
-                {
-                    QuestionList.Shuffle<QuestionSheet>();
-                }*/
 
             }
 
@@ -328,10 +317,16 @@ namespace comquiz
 
             if (Preferences != null)
             {
+                if (Preferences.QuizPart != QUIZPART.Entire)
+                {
+                    generatedQuestionList = SplitTheQuiz(generatedQuestionList, Preferences.QuizPart, Preferences.QuizPartial);
+                }
+
                 if (Preferences.RandomizeQuestionsOrder)
                 {
                     generatedQuestionList.Shuffle<QuestionSheet>().ToList<QuestionSheet>();
                 }
+            
             }
 
             PersonalizedQuestionsList = generatedQuestionList;

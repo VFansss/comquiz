@@ -10,19 +10,19 @@
     <local:SpoilAnswersConverter x:Key="SpoilAnswersConverter"/>
   </UserControl.Resources>
   
-  <Grid RowDefinitions="1* 1.5* 5* 6.5* 1.5*" Background="LightGreen" ShowGridLines="True">
+  <Grid RowDefinitions="1.5* 1* 5* 6.5* 1.5*" ShowGridLines="False">
 
-    <Button Grid.Row="0" Command="{Binding TerminateQuiz}">
+    <Button Background="Transparent" Grid.Row="0" Command="{Binding TerminateQuiz}">
       Termina Quiz
     </Button>
 
     <Viewbox Grid.Row="1" Stretch="Uniform">
 
-      <TextBlock Text="{Binding CurrentQuiz.Title}"/>
+      <TextBlock Foreground="{DynamicResource ThemeBorderMidBrush}" Text="{Binding CurrentQuiz.Title}"/>
 
     </Viewbox>
 
-    <Grid Grid.Row="2" RowDefinitions="* 30" ShowGridLines="True">
+    <Grid Grid.Row="2" RowDefinitions="* 30" ShowGridLines="False">
 
       <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
@@ -48,7 +48,7 @@
 
           <ItemsPanelTemplate>
 
-            <WrapPanel Background="Red" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical"/>
+            <WrapPanel Margin="30" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical"/>
 
           </ItemsPanelTemplate>
 
@@ -58,7 +58,7 @@
 
           <DataTemplate>
 
-            <StackPanel Margin="15 10 5 10">
+            <StackPanel>
 
               <!-- Normally visible answer -->
               <TextBlock Text="{Binding AnswerBody}" IsVisible="{Binding !$parent[ItemsControl].DataContext.SpoilRightAnswer}" />
@@ -89,7 +89,7 @@
 
     <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
 
-      <Button Grid.Row="0" Command="{Binding ShowAnswers}" Content="Svela le risposte"/>
+      <Button Background="Transparent" Grid.Row="0" Command="{Binding ShowAnswers}" Content="Svela le risposte"/>
 
       <StackPanel Grid.Row="1" Margin="30 0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
 
