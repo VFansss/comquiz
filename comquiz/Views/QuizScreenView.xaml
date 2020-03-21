@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:localization="clr-namespace:comquiz.Properties"
              mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="768"
              x:Class="comquiz.Views.QuizScreenView"
              xmlns:local="clr-namespace:comquiz">
@@ -12,9 +13,7 @@
   
   <Grid RowDefinitions="1.5* 1* 5* 6.5* 1.5*" ShowGridLines="False">
 
-    <Button Background="Transparent" Grid.Row="0" Command="{Binding TerminateQuiz}">
-      Termina Quiz
-    </Button>
+    <Button Background="Transparent" Grid.Row="0" Command="{Binding TerminateQuiz}" Content="{x:Static localization:strings.quizScreen_endQuiz}"/>
 
     <Viewbox Grid.Row="1" Stretch="Uniform">
 
@@ -32,7 +31,7 @@
 
       <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
 
-        <TextBlock Text="Risposte giuste a questa domanda: "/>
+        <TextBlock Text="{x:Static localization:strings.quizScreen_rightAnswersCounter}"/>
         <TextBlock Text="{Binding CurrentQuestion.NumberOfRightAnswers}"/>
         
       </StackPanel>
@@ -89,18 +88,18 @@
 
     <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
 
-      <Button Background="Transparent" Grid.Row="0" Command="{Binding ShowAnswers}" Content="Svela le risposte"/>
+      <Button Background="Transparent" Grid.Row="0" Command="{Binding ShowAnswers}" Content="{x:Static localization:strings.quizScreen_showRightAnswersLabel}"/>
 
       <StackPanel Grid.Row="1" Margin="30 0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
 
-        <TextBlock FontSize="15" Text="Domanda "/>
+        <TextBlock FontSize="15" Text="{x:Static localization:strings.quizScreen_questionCounter_1}"/>
         <TextBlock FontSize="15" Text="{Binding CurrentQuestionNumber}"/>
-        <TextBlock FontSize="15" Text=" su "/>
+        <TextBlock FontSize="15" Text="{x:Static localization:strings.quizScreen_questionCounter_2}"/>
         <TextBlock FontSize="15" Text="{Binding CurrentQuiz.PersonalizedQuestionsList.Count}"/>
 
       </StackPanel>
 
-      <Button Grid.Row="0" Command="{Binding NextQuestion}" Content="Prossima domanda"/>
+      <Button Grid.Row="0" Command="{Binding NextQuestion}" Content="{x:Static localization:strings.quizScreen_nextQuestionLabel}"/>
         
     </StackPanel>
 

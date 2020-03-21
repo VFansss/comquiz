@@ -1,9 +1,6 @@
 ﻿using Avalonia.Data;
 using Avalonia.Data.Converters;
-using Avalonia.Media;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace comquiz
 {
@@ -11,7 +8,8 @@ namespace comquiz
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return value.Equals(parameter);
+            if (value != null) return value.Equals(parameter);
+            else return null;
 
         }
 

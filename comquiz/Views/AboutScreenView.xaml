@@ -42,7 +42,7 @@
     <TextBlock FontSize="52" Text="Thanks &amp; Legal"/>
     
     <TextBlock Classes="personal">
-      A huge thank you to the Avalonia UI community for the tremendous help and understanding they gave me during my learning
+      A huge thanks to the Avalonia UI community for the tremendous help and understanding they gave me during my learning
     </TextBlock>
 
     <TextBlock Classes="personal">
@@ -50,11 +50,11 @@
     </TextBlock>
 
     <TextBlock Classes="personal">
-      Thank you to everyone who uses this program
+      Last but not least: thanks to you
     </TextBlock>
 
     <TextBlock Classes="personal" FontWeight="Bold">
-      Built with &lt;3
+      Built with &lt;3 from Italy
     </TextBlock>
 
     <TextBlock>
@@ -67,6 +67,10 @@
 
     <TextBlock>
       This software make use of MessageBox.Avalonia, granted under MIT licence: Copyright (c) 2019 roman
+    </TextBlock>
+
+    <TextBlock>
+      This software make use of dotnet-bundle, granted under MIT licence: Copyright (c) 2018 Sergey Khabibullin
     </TextBlock>
 
   </DockPanel>

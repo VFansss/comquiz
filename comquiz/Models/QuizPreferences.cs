@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-using ReactiveUI;
+﻿using ReactiveUI;
 
 namespace comquiz
 {
@@ -21,8 +17,8 @@ namespace comquiz
             {
                 QuizPartial = QUIZPARTIAL.First;
                 this.RaiseAndSetIfChanged(ref _quizPart, value);
-            }               
-                
+            }
+
         }
 
         QUIZPARTIAL _quizPartial = QUIZPARTIAL.First;

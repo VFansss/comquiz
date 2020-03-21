@@ -1,7 +1,7 @@
-using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using comquiz.ViewModels;
+using System;
 
 namespace comquiz
 {
@@ -11,7 +11,7 @@ namespace comquiz
 
         public IControl Build(object data)
         {
-            var name = data.GetType().FullName.Replace("ViewModel", "View");
+            var name = data.GetType().FullName.Replace("ViewModel", "View", StringComparison.InvariantCultureIgnoreCase);
             var type = Type.GetType(name);
 
             if (type != null)

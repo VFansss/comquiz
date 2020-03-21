@@ -1,8 +1,6 @@
 ﻿using Avalonia.Controls;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
 
 namespace comquiz.ViewModels
 {
@@ -10,7 +8,7 @@ namespace comquiz.ViewModels
     {
         readonly public MainWindowViewModel MainDatacontext;
 
-        public string _version = "v200319";
+        public string _version = "v200321";
         public string Version
         {
             get => _version;
@@ -28,19 +26,17 @@ namespace comquiz.ViewModels
             OpenFileDialog dialog = new OpenFileDialog
             {
                 AllowMultiple = false,
-                Title = "Seleziona un file di QUIZ",
+                Title = Properties.strings.mainMenu_chooseFileDialogTitle,
                 Filters = new List<FileDialogFilter> { new FileDialogFilter() { Name = "Text", Extensions = { "txt" } } }
             };
 
-            string[] file = await dialog.ShowAsync(parameter);
+            string[] file = await dialog.ShowAsync(parameter).ConfigureAwait(true);
 
             if (file.Length > 0)
             {
-                string messageError = null;
-
                 try
                 {
-                    QuizSheet selectedQuiz = new QuizSheet(file.GetValue(0).ToString(), QUIZPART.Entire, QUIZPARTIAL.First);
+                    QuizSheet selectedQuiz = new QuizSheet(file.GetValue(0).ToString());
 
                     MainDatacontext.IsVisible = !MainDatacontext.IsVisible;
 
@@ -51,15 +47,15 @@ namespace comquiz.ViewModels
                 {
                     MessageBox.Avalonia.BaseWindows.MsBoxStandardWindow messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
                     "( ⚆ _ ⚆ )",
-                    "Errore durante la lettura del quiz:"+"\n\n"+ ex.Message,
+                    Properties.strings.mainMenu_quizParsingErrorString + ":\n\n" + ex.Message,
                     MessageBox.Avalonia.Enums.ButtonEnum.Ok,
                     MessageBox.Avalonia.Enums.Icon.Error);
 
                     _ = messageBoxStandardWindow.Show();
                 }
-                
-                
-            }           
+
+
+            }
 
         }
 

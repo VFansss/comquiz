@@ -1,8 +1,6 @@
 ﻿using Avalonia.Data.Converters;
 using Avalonia.Media;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace comquiz
 {
@@ -16,7 +14,7 @@ namespace comquiz
             {
                 bool isTheRightAnswer = (bool)value;
 
-                if (parameter.ToString().Equals("Foreground"))
+                if (parameter.ToString().Equals("Foreground", StringComparison.InvariantCultureIgnoreCase))
                 {
                     if (isTheRightAnswer)
                     {
@@ -27,7 +25,7 @@ namespace comquiz
                         returningValue = new SolidColorBrush(Colors.White);
                     }
                 }
-                else if (parameter.ToString().Equals("FontWeight"))
+                else if (parameter.ToString().Equals("FontWeight", StringComparison.InvariantCultureIgnoreCase))
                 {
                     if (isTheRightAnswer)
                     {
@@ -44,7 +42,7 @@ namespace comquiz
             }
 
             return null;
-            
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

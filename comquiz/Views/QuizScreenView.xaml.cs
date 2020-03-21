@@ -1,8 +1,6 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using comquiz.ViewModels;
-using System.Collections.Generic;
 
 namespace comquiz.Views
 {

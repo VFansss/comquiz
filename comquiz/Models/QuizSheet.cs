@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using static comquiz.QuestionSheet;
 
 namespace comquiz
@@ -44,7 +43,7 @@ namespace comquiz
                 if (PersonalizedQuestionsList != null)
                 {
 
-                    foreach(QuestionSheet singleQuestion in PersonalizedQuestionsList)
+                    foreach (QuestionSheet singleQuestion in PersonalizedQuestionsList)
                     {
                         if (singleQuestion.GetQuestionStatus() != ANSWERED.NotYet) count++;
                     }
@@ -61,18 +60,18 @@ namespace comquiz
 
 
 
-        
-        public QuizSheet(string pathToQuiz, QUIZPART quizQuarter,QUIZPARTIAL quizPart)
+
+        public QuizSheet(string pathToQuiz)
         {
             try
             {
                 Title = Path.GetFileNameWithoutExtension(pathToQuiz);
 
-                string fileContent = File.ReadAllText(pathToQuiz,Encoding.UTF8);
+                string fileContent = File.ReadAllText(pathToQuiz, Encoding.UTF8);
 
-                if (!fileContent.StartsWith("|||||",StringComparison.InvariantCultureIgnoreCase))
+                if (!fileContent.StartsWith("|||||", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    throw new Exception("Loaded file does not appear to be a quiz!");
+                    throw new Exception(Properties.strings.quizSheet_parsingError_fileIsNotQuiz);
                 }
 
                 string[] questionsFound = fileContent.Split(new string[] { "|||||" }, StringSplitOptions.RemoveEmptyEntries);
@@ -87,11 +86,9 @@ namespace comquiz
                 {
                     QuestionSheet newQuestion = new QuestionSheet();
 
-                    singleQuestion.Trim();
-
-                    if (singleQuestion.Equals(""))
+                    if (string.IsNullOrWhiteSpace(singleQuestion))
                     {
-                        throw new Exception("The QUIZ seems to contain a question with no text or answer (?????)");
+                        throw new Exception(Properties.strings.quizSheet_parsingError_badOrInvalidQuestion_1);
                     }
 
                     string[] tokens = Regex.Split(singleQuestion.Trim(), @"(?=\|\||\|-|\|\+)");
@@ -99,7 +96,7 @@ namespace comquiz
 
                     if (tokens.Length <= 2)
                     {
-                        throw new Exception("The QUIZ seems to contain a question without question or without answers (?????)");
+                        throw new Exception(Properties.strings.quizSheet_parsingError_badOrInvalidQuestion_2);
                     }
 
                     // A question, and least 2 answers 
@@ -115,29 +112,29 @@ namespace comquiz
                             continue;
                         }
 
-                        else if (singleToken.Substring(0,2).Equals("||"))
+                        else if (singleToken.Substring(0, 2).Equals("||", StringComparison.InvariantCultureIgnoreCase))
                         {
                             // Is the question body
-                            newQuestion.QuestionBody = singleToken.Substring(2, singleToken.Length-2).Trim();
+                            newQuestion.QuestionBody = singleToken[2..].Trim();
                         }
 
-                        else if (singleToken.Substring(0, 2).Equals("|+"))
+                        else if (singleToken.Substring(0, 2).Equals("|+", StringComparison.InvariantCultureIgnoreCase))
                         {
                             // Is a right answer
 
-                            newQuestion.OriginalAnswersList.Add(new AnswerSheet(singleToken.Substring(2, singleToken.Length - 2).Trim(), true));
+                            newQuestion.OriginalAnswersList.Add(new AnswerSheet(singleToken[2..].Trim(), true));
                         }
 
-                        else if (singleToken.Substring(0, 2).Equals("|-"))
+                        else if (singleToken.Substring(0, 2).Equals("|-", StringComparison.InvariantCultureIgnoreCase))
                         {
                             // Is a wrong answer
-                            newQuestion.OriginalAnswersList.Add(new AnswerSheet(singleToken.Substring(2, singleToken.Length-2).Trim(), false));
+                            newQuestion.OriginalAnswersList.Add(new AnswerSheet(singleToken[2..].Trim(), false));
                         }
 
                         else
                         {
                             // Strange token
-                            throw new Exception("Unrecognized token:\n\nIncriminated row: "+token);
+                            throw new Exception("Unrecognized token:\n\nIncriminated row: " + token);
                         }
 
                     } // End foreach token
@@ -150,7 +147,7 @@ namespace comquiz
 
             }
 
-            catch(Exception ex)
+            catch
             {
                 throw;
             }
@@ -160,13 +157,13 @@ namespace comquiz
 
         public static List<QuestionSheet> SplitTheQuiz(List<QuestionSheet> originalList, QUIZPART quizQuarter, QUIZPARTIAL quizPart)
         {
-            List<QuestionSheet> newQuestionList = new List<QuestionSheet>();
+            if (originalList == null) return null;
 
-            int splitEvery = 0;
-            int equalPieces = 0;
+            int splitEvery;
+            int equalPieces;
             bool wantTheLastPiece = false;
 
-            if ( quizQuarter == QUIZPART.Half)
+            if (quizQuarter == QUIZPART.Half)
             {
                 equalPieces = 2;
 
@@ -176,7 +173,7 @@ namespace comquiz
                 }
 
             }
-            else if (quizQuarter == QUIZPART.Third )
+            else if (quizQuarter == QUIZPART.Third)
             {
                 equalPieces = 3;
 
@@ -201,7 +198,7 @@ namespace comquiz
             // Split original quiz in in 2/3/6 equal pieces
             splitEvery = originalList.Count / equalPieces;
 
-            if (splitEvery>0)
+            if (splitEvery > 0)
             {
                 // Mean that total questions are enough to be splitted
 
@@ -232,8 +229,8 @@ namespace comquiz
             {
                 return originalList;
             }
-            
-            
+
+
         }
 
         private static List<List<QuestionSheet>> SplitList(List<QuestionSheet> locations, int nSize = 30)
@@ -267,9 +264,9 @@ namespace comquiz
         {
             short rightQuestions = 0;
 
-            foreach(QuestionSheet singleQuestion in PersonalizedQuestionsList)
+            foreach (QuestionSheet singleQuestion in PersonalizedQuestionsList)
             {
-                if(singleQuestion.GetQuestionStatus() == ANSWERED.Correctly)
+                if (singleQuestion.GetQuestionStatus() == ANSWERED.Correctly)
                 {
                     rightQuestions++;
                 }
@@ -326,7 +323,7 @@ namespace comquiz
                 {
                     generatedQuestionList.Shuffle<QuestionSheet>().ToList<QuestionSheet>();
                 }
-            
+
             }
 
             PersonalizedQuestionsList = generatedQuestionList;

@@ -1,12 +1,8 @@
-﻿using Avalonia.Collections;
-using Avalonia.Data.Converters;
-using Avalonia.Interactivity;
-using ReactiveUI;
+﻿using ReactiveUI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+using System.Globalization;
 using static comquiz.QuestionSheet;
 
 namespace comquiz.ViewModels
@@ -115,7 +111,7 @@ namespace comquiz.ViewModels
 
                 QuestionSheet nextQuestion = CurrentQuiz.GetUnansweredQuestion();
 
-                if(nextQuestion is null)
+                if (nextQuestion is null)
                 {
                     // QUIZ FINISHED!
 
@@ -129,9 +125,9 @@ namespace comquiz.ViewModels
 
                     CurrentQuestionNumber++;
                 }
-              
+
             }
- 
+
         }
 
         // AIDING METHODS
@@ -150,17 +146,27 @@ namespace comquiz.ViewModels
                 AnswerSheet.CheckTheseAnswers(choosedAnswers);
 
             }
-            
+
         }
 
         public void DisplayQuizResult()
         {
             QuizStats myStats = CurrentQuiz.GetQuizStats();
 
+            CultureInfo culture = CultureInfo.CurrentCulture;
+
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
             "( ⚆ _ ⚆ )",
-            "Quiz completato. Risultato:" + "\n\n" +
-            String.Format("Domande Esatte : {0}, su un totale di {1} ({2}%)", myStats.RightQuestions, myStats.TotalQuestions, myStats.CompletePercentage),
+
+            String.Format(
+                culture, "{0}:\n\n{1} : {2}, {3} {4} ({5}%)",
+                Properties.strings.quizScreen_quizCompleted_1,
+                Properties.strings.quizScreen_quizCompleted_2,
+                myStats.RightQuestions,
+                Properties.strings.quizScreen_quizCompleted_3,
+                myStats.TotalQuestions,
+                myStats.CompletePercentage),
+
             MessageBox.Avalonia.Enums.ButtonEnum.Ok,
             MessageBox.Avalonia.Enums.Icon.Info);
 
@@ -169,11 +175,11 @@ namespace comquiz.ViewModels
             AnsweringEnabled = false;
         }
 
-        public void ShowNotEnoughAnswersAlert()
+        public static void ShowNotEnoughAnswersAlert()
         {
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
                 "( ⚆ _ ⚆ )",
-                "Hai selezionato meno risposte di quanto dovresti. Mettici una pezza.",
+                Properties.strings.quizScreen_notEnoughSelectedAnswers,
                 MessageBox.Avalonia.Enums.ButtonEnum.Ok,
                 MessageBox.Avalonia.Enums.Icon.Info);
 
