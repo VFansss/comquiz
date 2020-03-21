@@ -1,12 +1,8 @@
-﻿using Avalonia.Data.Converters;
-using Avalonia.Interactivity;
-using ReactiveUI;
+﻿using ReactiveUI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Text;
 using static comquiz.QuestionSheet;
 
 namespace comquiz.ViewModels
@@ -115,7 +111,7 @@ namespace comquiz.ViewModels
 
                 QuestionSheet nextQuestion = CurrentQuiz.GetUnansweredQuestion();
 
-                if(nextQuestion is null)
+                if (nextQuestion is null)
                 {
                     // QUIZ FINISHED!
 
@@ -129,9 +125,9 @@ namespace comquiz.ViewModels
 
                     CurrentQuestionNumber++;
                 }
-              
+
             }
- 
+
         }
 
         // AIDING METHODS
@@ -150,7 +146,7 @@ namespace comquiz.ViewModels
                 AnswerSheet.CheckTheseAnswers(choosedAnswers);
 
             }
-            
+
         }
 
         public void DisplayQuizResult()
@@ -161,7 +157,7 @@ namespace comquiz.ViewModels
 
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
             "( ⚆ _ ⚆ )",
-            
+
             String.Format(
                 culture, "{0}:\n\n{1} : {2}, {3} {4} ({5}%)",
                 Properties.strings.quizScreen_quizCompleted_1,

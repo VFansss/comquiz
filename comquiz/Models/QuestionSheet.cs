@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace comquiz
 {
@@ -25,7 +22,7 @@ namespace comquiz
                     {
                         answersList.Shuffle<AnswerSheet>().ToList<AnswerSheet>();
                     }
-                    
+
                 }
 
                 return answersList;
@@ -40,7 +37,7 @@ namespace comquiz
             {
                 int rightAnswers = 0;
 
-                foreach(AnswerSheet singleAnswer in PersonalizedAnswersList)
+                foreach (AnswerSheet singleAnswer in PersonalizedAnswersList)
                 {
                     if (singleAnswer.IsTheRightAnswer) rightAnswers++;
                 }
@@ -84,7 +81,7 @@ namespace comquiz
 
             // Check: I answered?
 
-            foreach(AnswerSheet singleAnswer in PersonalizedAnswersList)
+            foreach (AnswerSheet singleAnswer in PersonalizedAnswersList)
             {
                 if (singleAnswer.HasBeenSelected)
                 {
@@ -92,7 +89,7 @@ namespace comquiz
                 }
             }
 
-            if(answersDone != NumberOfRightAnswers)
+            if (answersDone != NumberOfRightAnswers)
             {
                 return ANSWERED.NotYet;
             }
@@ -101,14 +98,14 @@ namespace comquiz
             {
                 // I've answered right?
 
-                foreach(AnswerSheet singleAnswer in PersonalizedAnswersList)
+                foreach (AnswerSheet singleAnswer in PersonalizedAnswersList)
                 {
-                    if(singleAnswer.IsTheRightAnswer && !singleAnswer.HasBeenSelected)
+                    if (singleAnswer.IsTheRightAnswer && !singleAnswer.HasBeenSelected)
                     {
                         return ANSWERED.Wrong;
                     }
 
-                    if(!singleAnswer.IsTheRightAnswer && singleAnswer.HasBeenSelected)
+                    if (!singleAnswer.IsTheRightAnswer && singleAnswer.HasBeenSelected)
                     {
                         return ANSWERED.Wrong;
                     }

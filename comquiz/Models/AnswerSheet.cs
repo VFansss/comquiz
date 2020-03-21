@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace comquiz
 {
@@ -20,7 +15,7 @@ namespace comquiz
                 if (Preferences != null)
                 {
                     if (Preferences.RandomizeAnswersOrder) textToReturn = TrimAnswerListAnnotation();
-                }               
+                }
 
                 return textToReturn;
             }
@@ -46,7 +41,7 @@ namespace comquiz
 
         public static void CheckTheseAnswers(List<AnswerSheet> answersToSelect)
         {
-            foreach(AnswerSheet singleAnswer in answersToSelect)
+            foreach (AnswerSheet singleAnswer in answersToSelect)
             {
                 singleAnswer.HasBeenSelected = true;
             }
@@ -56,7 +51,7 @@ namespace comquiz
         {
             return Regex.Replace(this._answerBody, @"^([A-z]|[0-9]){1}(\)|\.)[ ]*", "");
         }
-  
+
     }
 
 }

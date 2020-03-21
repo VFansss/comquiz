@@ -1,9 +1,8 @@
 ﻿using Avalonia.Data.Converters;
+using Avalonia.Media;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
-using Avalonia.Media;
 
 namespace comquiz
 {
@@ -47,7 +46,7 @@ namespace comquiz
                         {
                             partialBarSelected = true;
                         }
-                        else if(selectedQuizPartial == QUIZPARTIAL.Third && currentPartialBarNumber > 4)
+                        else if (selectedQuizPartial == QUIZPARTIAL.Third && currentPartialBarNumber > 4)
                         {
                             partialBarSelected = true;
                         }

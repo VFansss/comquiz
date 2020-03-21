@@ -1,8 +1,6 @@
 ﻿using Avalonia.Controls;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
 
 namespace comquiz.ViewModels
 {
@@ -51,15 +49,15 @@ namespace comquiz.ViewModels
                 {
                     MessageBox.Avalonia.BaseWindows.MsBoxStandardWindow messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
                     "( ⚆ _ ⚆ )",
-                    Properties.strings.mainMenu_quizParsingErrorString + ":\n\n"+ ex.Message,
+                    Properties.strings.mainMenu_quizParsingErrorString + ":\n\n" + ex.Message,
                     MessageBox.Avalonia.Enums.ButtonEnum.Ok,
                     MessageBox.Avalonia.Enums.Icon.Error);
 
                     _ = messageBoxStandardWindow.Show();
                 }
-                
-                
-            }           
+
+
+            }
 
         }
 

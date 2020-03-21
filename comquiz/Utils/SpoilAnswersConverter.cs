@@ -1,8 +1,6 @@
 ﻿using Avalonia.Data.Converters;
 using Avalonia.Media;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace comquiz
 {
@@ -44,7 +42,7 @@ namespace comquiz
             }
 
             return null;
-            
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
