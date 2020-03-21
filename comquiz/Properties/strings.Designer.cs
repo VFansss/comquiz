@@ -329,5 +329,32 @@ namespace comquiz.Properties {
                 return ResourceManager.GetString("quizScreen_showRightAnswersLabel", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a The QUIZ seems to contain a question with no text or answer (?????).
+        /// </summary>
+        public static string quizSheet_parsingError_badOrInvalidQuestion_1 {
+            get {
+                return ResourceManager.GetString("quizSheet_parsingError_badOrInvalidQuestion_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a The QUIZ seems to contain a question without question or without answers (?????).
+        /// </summary>
+        public static string quizSheet_parsingError_badOrInvalidQuestion_2 {
+            get {
+                return ResourceManager.GetString("quizSheet_parsingError_badOrInvalidQuestion_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Loaded file does not appear to be a quiz!.
+        /// </summary>
+        public static string quizSheet_parsingError_fileIsNotQuiz {
+            get {
+                return ResourceManager.GetString("quizSheet_parsingError_fileIsNotQuiz", resourceCulture);
+            }
+        }
     }
 }

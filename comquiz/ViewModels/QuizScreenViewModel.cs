@@ -175,7 +175,7 @@ namespace comquiz.ViewModels
             AnsweringEnabled = false;
         }
 
-        public void ShowNotEnoughAnswersAlert()
+        public static void ShowNotEnoughAnswersAlert()
         {
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
                 "( ⚆ _ ⚆ )",

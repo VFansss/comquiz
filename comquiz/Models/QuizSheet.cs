@@ -61,7 +61,7 @@ namespace comquiz
 
 
 
-        public QuizSheet(string pathToQuiz, QUIZPART quizQuarter, QUIZPARTIAL quizPart)
+        public QuizSheet(string pathToQuiz)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace comquiz
 
                 if (!fileContent.StartsWith("|||||", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    throw new Exception("Loaded file does not appear to be a quiz!");
+                    throw new Exception(Properties.strings.quizSheet_parsingError_fileIsNotQuiz);
                 }
 
                 string[] questionsFound = fileContent.Split(new string[] { "|||||" }, StringSplitOptions.RemoveEmptyEntries);
@@ -86,11 +86,9 @@ namespace comquiz
                 {
                     QuestionSheet newQuestion = new QuestionSheet();
 
-                    singleQuestion.Trim();
-
-                    if (singleQuestion.Equals(""))
+                    if (string.IsNullOrWhiteSpace(singleQuestion))
                     {
-                        throw new Exception("The QUIZ seems to contain a question with no text or answer (?????)");
+                        throw new Exception(Properties.strings.quizSheet_parsingError_badOrInvalidQuestion_1);
                     }
 
                     string[] tokens = Regex.Split(singleQuestion.Trim(), @"(?=\|\||\|-|\|\+)");
@@ -98,7 +96,7 @@ namespace comquiz
 
                     if (tokens.Length <= 2)
                     {
-                        throw new Exception("The QUIZ seems to contain a question without question or without answers (?????)");
+                        throw new Exception(Properties.strings.quizSheet_parsingError_badOrInvalidQuestion_2);
                     }
 
                     // A question, and least 2 answers 
@@ -114,23 +112,23 @@ namespace comquiz
                             continue;
                         }
 
-                        else if (singleToken.Substring(0, 2).Equals("||"))
+                        else if (singleToken.Substring(0, 2).Equals("||", StringComparison.InvariantCultureIgnoreCase))
                         {
                             // Is the question body
-                            newQuestion.QuestionBody = singleToken.Substring(2, singleToken.Length - 2).Trim();
+                            newQuestion.QuestionBody = singleToken[2..].Trim();
                         }
 
-                        else if (singleToken.Substring(0, 2).Equals("|+"))
+                        else if (singleToken.Substring(0, 2).Equals("|+", StringComparison.InvariantCultureIgnoreCase))
                         {
                             // Is a right answer
 
-                            newQuestion.OriginalAnswersList.Add(new AnswerSheet(singleToken.Substring(2, singleToken.Length - 2).Trim(), true));
+                            newQuestion.OriginalAnswersList.Add(new AnswerSheet(singleToken[2..].Trim(), true));
                         }
 
-                        else if (singleToken.Substring(0, 2).Equals("|-"))
+                        else if (singleToken.Substring(0, 2).Equals("|-", StringComparison.InvariantCultureIgnoreCase))
                         {
                             // Is a wrong answer
-                            newQuestion.OriginalAnswersList.Add(new AnswerSheet(singleToken.Substring(2, singleToken.Length - 2).Trim(), false));
+                            newQuestion.OriginalAnswersList.Add(new AnswerSheet(singleToken[2..].Trim(), false));
                         }
 
                         else
@@ -149,7 +147,7 @@ namespace comquiz
 
             }
 
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
@@ -159,10 +157,10 @@ namespace comquiz
 
         public static List<QuestionSheet> SplitTheQuiz(List<QuestionSheet> originalList, QUIZPART quizQuarter, QUIZPARTIAL quizPart)
         {
-            List<QuestionSheet> newQuestionList = new List<QuestionSheet>();
+            if (originalList == null) return null;
 
-            int splitEvery = 0;
-            int equalPieces = 0;
+            int splitEvery;
+            int equalPieces;
             bool wantTheLastPiece = false;
 
             if (quizQuarter == QUIZPART.Half)

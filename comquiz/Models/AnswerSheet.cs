@@ -41,10 +41,14 @@ namespace comquiz
 
         public static void CheckTheseAnswers(List<AnswerSheet> answersToSelect)
         {
-            foreach (AnswerSheet singleAnswer in answersToSelect)
+            if (answersToSelect != null)
             {
-                singleAnswer.HasBeenSelected = true;
+                foreach (AnswerSheet singleAnswer in answersToSelect)
+                {
+                    singleAnswer.HasBeenSelected = true;
+                }
             }
+            
         }
 
         private string TrimAnswerListAnnotation()

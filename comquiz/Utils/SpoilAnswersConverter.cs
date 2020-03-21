@@ -14,7 +14,7 @@ namespace comquiz
             {
                 bool isTheRightAnswer = (bool)value;
 
-                if (parameter.ToString().Equals("Foreground"))
+                if (parameter.ToString().Equals("Foreground", StringComparison.InvariantCultureIgnoreCase))
                 {
                     if (isTheRightAnswer)
                     {
@@ -25,7 +25,7 @@ namespace comquiz
                         returningValue = new SolidColorBrush(Colors.White);
                     }
                 }
-                else if (parameter.ToString().Equals("FontWeight"))
+                else if (parameter.ToString().Equals("FontWeight", StringComparison.InvariantCultureIgnoreCase))
                 {
                     if (isTheRightAnswer)
                     {

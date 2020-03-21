@@ -8,7 +8,8 @@ namespace comquiz
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return value.Equals(parameter);
+            if (value != null) return value.Equals(parameter);
+            else return null;
 
         }
 

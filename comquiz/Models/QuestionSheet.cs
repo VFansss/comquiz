@@ -8,7 +8,7 @@ namespace comquiz
     {
         public string QuestionBody { get; set; } = "NO-BODY";
 
-        public List<AnswerSheet> OriginalAnswersList { get; set; } = new List<AnswerSheet>();
+        public List<AnswerSheet> OriginalAnswersList { get; } = new List<AnswerSheet>();
 
         public List<AnswerSheet> PersonalizedAnswersList
         {
@@ -69,10 +69,7 @@ namespace comquiz
 
 
 
-        public QuestionSheet()
-        {
 
-        }
 
         public ANSWERED GetQuestionStatus()
         {
@@ -117,32 +114,6 @@ namespace comquiz
                 return ANSWERED.Correctly;
 
             }
-
-        }
-
-        public static List<AnswerSheet> RemoveListAnnotationsIfPossible(List<AnswerSheet> inputList)
-        {
-            bool answersAreTrimmable = true;
-
-            foreach (AnswerSheet singleAnswer in inputList)
-            {
-                if (!Regex.IsMatch(singleAnswer.AnswerBody, @"^([A-z]|[0-9]){1}(\)|\.)[\s\S\.*]*"))
-                {
-                    answersAreTrimmable = false;
-                    break;
-                }
-            }
-
-            if (answersAreTrimmable)
-            {
-                foreach (AnswerSheet singleAnswer in inputList)
-                {
-                    singleAnswer.AnswerBody = Regex.Replace(singleAnswer.AnswerBody, @"^([A-z]|[0-9]){1}(\)|\.)[\s\S\.*]*", "");
-                }
-
-            }
-
-            return inputList;
 
         }
 

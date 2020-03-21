@@ -14,6 +14,7 @@
     <NSPrincipalClass>NSApplication</NSPrincipalClass>
     <NSHighResolutionCapable>true</NSHighResolutionCapable>
 	<RuntimeIdentifiers>osx-x64</RuntimeIdentifiers>
+	<NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="**\*.xaml.cs">

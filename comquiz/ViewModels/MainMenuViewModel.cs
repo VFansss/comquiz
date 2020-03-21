@@ -30,15 +30,13 @@ namespace comquiz.ViewModels
                 Filters = new List<FileDialogFilter> { new FileDialogFilter() { Name = "Text", Extensions = { "txt" } } }
             };
 
-            string[] file = await dialog.ShowAsync(parameter);
+            string[] file = await dialog.ShowAsync(parameter).ConfigureAwait(true);
 
             if (file.Length > 0)
             {
-                string messageError = null;
-
                 try
                 {
-                    QuizSheet selectedQuiz = new QuizSheet(file.GetValue(0).ToString(), QUIZPART.Entire, QUIZPARTIAL.First);
+                    QuizSheet selectedQuiz = new QuizSheet(file.GetValue(0).ToString());
 
                     MainDatacontext.IsVisible = !MainDatacontext.IsVisible;
 
