@@ -1,11 +1,11 @@
-﻿using Avalonia.Collections;
-using Avalonia.Data.Converters;
+﻿using Avalonia.Data.Converters;
 using Avalonia.Interactivity;
 using ReactiveUI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Text;
 using static comquiz.QuestionSheet;
 
@@ -157,10 +157,20 @@ namespace comquiz.ViewModels
         {
             QuizStats myStats = CurrentQuiz.GetQuizStats();
 
+            CultureInfo culture = CultureInfo.CurrentCulture;
+
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
             "( ⚆ _ ⚆ )",
-            "Quiz completato. Risultato:" + "\n\n" +
-            String.Format("Domande Esatte : {0}, su un totale di {1} ({2}%)", myStats.RightQuestions, myStats.TotalQuestions, myStats.CompletePercentage),
+            
+            String.Format(
+                culture, "{0}:\n\n{1} : {2}, {3} {4} ({5}%)",
+                Properties.strings.quizScreen_quizCompleted_1,
+                Properties.strings.quizScreen_quizCompleted_2,
+                myStats.RightQuestions,
+                Properties.strings.quizScreen_quizCompleted_3,
+                myStats.TotalQuestions,
+                myStats.CompletePercentage),
+
             MessageBox.Avalonia.Enums.ButtonEnum.Ok,
             MessageBox.Avalonia.Enums.Icon.Info);
 
@@ -173,7 +183,7 @@ namespace comquiz.ViewModels
         {
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
                 "( ⚆ _ ⚆ )",
-                "Hai selezionato meno risposte di quanto dovresti. Mettici una pezza.",
+                Properties.strings.quizScreen_notEnoughSelectedAnswers,
                 MessageBox.Avalonia.Enums.ButtonEnum.Ok,
                 MessageBox.Avalonia.Enums.Icon.Info);
 
