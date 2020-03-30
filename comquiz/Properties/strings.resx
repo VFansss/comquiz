@@ -216,4 +216,7 @@
   <data name="quizSheet_parsingError_fileIsNotQuiz" xml:space="preserve">
     <value>Loaded file does not appear to be a quiz!</value>
   </data>
+  <data name="mainMenu_selectOptions" xml:space="preserve">
+    <value>Select options:</value>
+  </data>
 </root>

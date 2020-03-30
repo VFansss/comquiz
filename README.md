@@ -39,7 +39,7 @@ You can load quizzes from any .txt file is a compatible format. You can manually
 
 ## Demo quiz
 
-Do you need a quiz to face your abilities? Check these out:
+Do you need a quiz to face your abilities? Check these out (**Right click on a link -> Save as**):
 
 * 🌄 Geography quiz [ENG] - [DOWNLOAD HERE](<https://raw.githubusercontent.com/VFansss/comquiz/master/.assets/quizzes/Geography%20quiz%20%5BENG%5D.txt>)
 

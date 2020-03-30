@@ -8,7 +8,7 @@ namespace comquiz.ViewModels
     {
         readonly public MainWindowViewModel MainDatacontext;
 
-        public string _version = "v200321";
+        public string _version = "v200330";
         public string Version
         {
             get => _version;

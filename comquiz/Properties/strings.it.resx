@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,152 +59,155 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="mainMenu_toStartMessage" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="mainMenu_toStartMessage" xml:space="preserve">
     <value>Per cominciare, seleziona un file di QUIZ</value>
   </data>
-	<data name="mainMenu_chooseFileButtonLabel" xml:space="preserve">
-		<value>Carica da file</value>
-	</data>
-	<data name="mainMenu_questionsNumber" xml:space="preserve">
-		<value>Numero domande: </value>
-	</data>
-	<data name="mainMenu_quizLoadedLabel" xml:space="preserve">
-		<value>Quiz caricato:</value>
-	</data>
-	<data name="mainMenu_quizPart" xml:space="preserve">
-		<value>Parte del quiz da affrontare:</value>
-	</data>
-	<data name="mainMenu_quizPart_Entire" xml:space="preserve">
-		<value>INTERO</value>
-	</data>
-	<data name="mainMenu_quizPart_Half" xml:space="preserve">
-		<value>META'</value>
-	</data>
-	<data name="mainMenu_quizPartial_First" xml:space="preserve">
-		<value>1a parte</value>
-	</data>
-	<data name="mainMenu_quizPartial_Second" xml:space="preserve">
-		<value>2a parte</value>
-	</data>
-	<data name="mainMenu_quizPartial_Third" xml:space="preserve">
-		<value>3a parte</value>
-	</data>
-	<data name="mainMenu_quizPartial_Forth" xml:space="preserve">
-		<value>4a parte</value>
-	</data>
-	<data name="mainMenu_quizPartial_Fifth" xml:space="preserve">
-		<value>5a parte</value>
-	</data>
-	<data name="mainMenu_quizPartial_Sixth" xml:space="preserve">
-		<value>6a parte</value>
-	</data>
-	<data name="mainMenu_displayQuizScreen" xml:space="preserve">
-		<value>Avvia quiz</value>
-	</data>
-	<data name="mainMenu_randomizeQuestions_Label" xml:space="preserve">
-		<value>Randomizza ordine domande</value>
-	</data>
-	<data name="mainMenu_randomizeQuestions_Tooltip" xml:space="preserve">
-		<value>Prendi l'insieme delle domande selezionato in alto e randomizzane l'ordine di visualizzazione</value>
-	</data>
-	<data name="mainMenu_randomizeAnswers_Label" xml:space="preserve">
-		<value>Randomizza ordine risposte</value>
-	</data>
-	<data name="mainMenu_randomizeAnswers_Tooltip" xml:space="preserve">
-		<value>Rimuovi annotazioni di lista dal testo della risposta (e.g. 1) o 2) oppure A. o B. ) e randomizzane l'ordine di visualizzazione</value>
-	</data>
-	<data name="quizScreen_endQuiz" xml:space="preserve">
-		<value>Termina quiz</value>
-	</data>
-	<data name="quizScreen_rightAnswersCounter" xml:space="preserve">
-		<value>Risposte giuste a questa domanda: </value>
-	</data>
-	<data name="quizScreen_showRightAnswersLabel" xml:space="preserve">
-		<value>Svela le risposte</value>
-	</data>
-	<data name="quizScreen_questionCounter_1" xml:space="preserve">
-		<value>Domanda </value>
-	</data>
-	<data name="quizScreen_questionCounter_2" xml:space="preserve">
-		<value> di </value>
-	</data>
-	<data name="quizScreen_nextQuestionLabel" xml:space="preserve">
-		<value>Prossima domanda</value>
-	</data>
-	<data name="mainMenu_chooseFileDialogTitle" xml:space="preserve">
-		<value>Seleziona un file di QUIZ</value>
-	</data>
-	<data name="mainMenu_quizParsingErrorString" xml:space="preserve">
-		<value>Errore durante la lettura del QUIZ</value>
-	</data>
-	<data name="quizScreen_notEnoughSelectedAnswers" xml:space="preserve">
-		<value>Hai selezionato meno risposte di quanto dovresti. Mettici una pezza.</value>
-	</data>
-	<data name="quizScreen_quizCompleted_1" xml:space="preserve">
-		<value>QUIZ completato. Risultato</value>
-	</data>
-	<data name="quizScreen_quizCompleted_2" xml:space="preserve">
-		<value>Domande esatte</value>
-	</data>
-	<data name="quizScreen_quizCompleted_3" xml:space="preserve">
-		<value>su un totale di</value>
-	</data>
+  <data name="mainMenu_chooseFileButtonLabel" xml:space="preserve">
+    <value>Carica da file</value>
+  </data>
+  <data name="mainMenu_questionsNumber" xml:space="preserve">
+    <value>Numero domande: </value>
+  </data>
+  <data name="mainMenu_quizLoadedLabel" xml:space="preserve">
+    <value>Quiz caricato:</value>
+  </data>
+  <data name="mainMenu_quizPart" xml:space="preserve">
+    <value>Parte del quiz da affrontare:</value>
+  </data>
+  <data name="mainMenu_quizPart_Entire" xml:space="preserve">
+    <value>INTERO</value>
+  </data>
+  <data name="mainMenu_quizPart_Half" xml:space="preserve">
+    <value>META'</value>
+  </data>
+  <data name="mainMenu_quizPartial_First" xml:space="preserve">
+    <value>1a parte</value>
+  </data>
+  <data name="mainMenu_quizPartial_Second" xml:space="preserve">
+    <value>2a parte</value>
+  </data>
+  <data name="mainMenu_quizPartial_Third" xml:space="preserve">
+    <value>3a parte</value>
+  </data>
+  <data name="mainMenu_quizPartial_Forth" xml:space="preserve">
+    <value>4a parte</value>
+  </data>
+  <data name="mainMenu_quizPartial_Fifth" xml:space="preserve">
+    <value>5a parte</value>
+  </data>
+  <data name="mainMenu_quizPartial_Sixth" xml:space="preserve">
+    <value>6a parte</value>
+  </data>
+  <data name="mainMenu_displayQuizScreen" xml:space="preserve">
+    <value>Avvia quiz</value>
+  </data>
+  <data name="mainMenu_randomizeQuestions_Label" xml:space="preserve">
+    <value>Randomizza ordine domande</value>
+  </data>
+  <data name="mainMenu_randomizeQuestions_Tooltip" xml:space="preserve">
+    <value>Prendi l'insieme delle domande selezionato in alto e randomizzane l'ordine di visualizzazione</value>
+  </data>
+  <data name="mainMenu_randomizeAnswers_Label" xml:space="preserve">
+    <value>Randomizza ordine risposte</value>
+  </data>
+  <data name="mainMenu_randomizeAnswers_Tooltip" xml:space="preserve">
+    <value>Rimuovi annotazioni di lista dal testo della risposta (e.g. 1) o 2) oppure A. o B. ) e randomizzane l'ordine di visualizzazione</value>
+  </data>
+  <data name="quizScreen_endQuiz" xml:space="preserve">
+    <value>Termina quiz</value>
+  </data>
+  <data name="quizScreen_rightAnswersCounter" xml:space="preserve">
+    <value>Risposte giuste a questa domanda: </value>
+  </data>
+  <data name="quizScreen_showRightAnswersLabel" xml:space="preserve">
+    <value>Svela le risposte</value>
+  </data>
+  <data name="quizScreen_questionCounter_1" xml:space="preserve">
+    <value>Domanda </value>
+  </data>
+  <data name="quizScreen_questionCounter_2" xml:space="preserve">
+    <value> di </value>
+  </data>
+  <data name="quizScreen_nextQuestionLabel" xml:space="preserve">
+    <value>Prossima domanda</value>
+  </data>
+  <data name="mainMenu_chooseFileDialogTitle" xml:space="preserve">
+    <value>Seleziona un file di QUIZ</value>
+  </data>
+  <data name="mainMenu_quizParsingErrorString" xml:space="preserve">
+    <value>Errore durante la lettura del QUIZ</value>
+  </data>
+  <data name="quizScreen_notEnoughSelectedAnswers" xml:space="preserve">
+    <value>Hai selezionato meno risposte di quanto dovresti. Mettici una pezza.</value>
+  </data>
+  <data name="quizScreen_quizCompleted_1" xml:space="preserve">
+    <value>QUIZ completato. Risultato</value>
+  </data>
+  <data name="quizScreen_quizCompleted_2" xml:space="preserve">
+    <value>Domande esatte</value>
+  </data>
+  <data name="quizScreen_quizCompleted_3" xml:space="preserve">
+    <value>su un totale di</value>
+  </data>
+  <data name="mainMenu_selectOptions" xml:space="preserve">
+    <value>Seleziona le opzioni:</value>
+  </data>
 </root>

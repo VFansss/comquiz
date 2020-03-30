@@ -232,6 +232,15 @@ namespace comquiz.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Select options:.
+        /// </summary>
+        public static string mainMenu_selectOptions {
+            get {
+                return ResourceManager.GetString("mainMenu_selectOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a To start, select a QUIZ file.
         /// </summary>
         public static string mainMenu_toStartMessage {

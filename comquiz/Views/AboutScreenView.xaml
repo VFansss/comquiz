@@ -62,15 +62,15 @@
     </TextBlock>
 
     <TextBlock>
-      This software make use of Avalonia UI, granted under MIT licence: Copyright (c) 2014 Steven Kirk
+      This software makes use of Avalonia UI, granted under MIT licence: Copyright (c) 2014 Steven Kirk
     </TextBlock>
 
     <TextBlock>
-      This software make use of MessageBox.Avalonia, granted under MIT licence: Copyright (c) 2019 roman
+      This software makes use of MessageBox.Avalonia, granted under MIT licence: Copyright (c) 2019 roman
     </TextBlock>
 
     <TextBlock>
-      This software make use of dotnet-bundle, granted under MIT licence: Copyright (c) 2018 Sergey Khabibullin
+      This software makes use of dotnet-bundle, granted under MIT licence: Copyright (c) 2018 Sergey Khabibullin
     </TextBlock>
 
   </DockPanel>
