@@ -1,0 +1,131 @@
+|||||
+|| What is the capital of Myanmar?
+
+|+a. Naypyidaw 
+|-b. Hồ Chí Minh
+|-c. Bari
+|-d. Nan-ching
+
+|||||
+|| Which of these European cities are the two most populous?
+
+|-a. London
+|+b. Moscow
+|-c. Madrid
+|+d. Istanbul
+|-e. Berlin
+|-f. Milan
+|-g. Dublin
+
+|||||
+|| Which country border Costa Rica?
+
+|+a. Nicaragua
+|-b. Chile
+|-c. Mexico
+|-d. Ecuador
+
+|||||
+|| Which state of the USA is further north?
+
+|-a. Wyoming
+|+b. Washington
+|-c. Illinois
+|-d. Arizona
+
+|||||
+|| Which of these cities is located on two continents at the same time?
+
+|-a. Panama
+|+b. Istanbul
+|-c. Cape Town
+|-d. Alexandria
+
+|||||
+|| What type of climate is found in the Amazon Jungle?
+
+|-a. Boreal
+|+b. Equatorial
+|-c. Savanna
+
+|||||
+|| Which of these cities are NOT in India?
+
+|+a. Karachi
+|-b. Bangalore
+|-c. Bhopal
+|-d. Chennai
+|+e. Hanoi
+
+|||||
+|| How many continents are there?
+
+|-a. Four
+|-b. Five
+|-c. Six
+|+d. Seven
+
+|||||
+|| Which of these countries were NOT a part of the Soviet Union?
+
+|-a. Georgia
+|-b. Ukraine
+|-c. Belarus
+|+d. Poland
+
+|||||
+|| What is the capital of South Africa?
+
+|-a. Cape Town
+|-b. Johannesburg
+|+c. Pretoria
+|-d. Kinshasa
+
+|||||
+|| Which is the largest country in the world by land area?
+
+|-a. Brazil
+|-b. United States
+|+c. Russia
+|-d. Australia
+
+|||||
+|| Which is the longest river in the world?
+
+|-a. Mekong
+|-b. Volga
+|-c. Yangzi
+|+d. Nile
+
+|||||
+|| Where is the largest volcano located?
+
+|-a. Pompei
+|-b. Tanzania
+|-c. Argentina
+|+d. Hawaii
+
+|||||
+|| Which continent has the most countries?
+
+|+a. Africa
+|-b. Asia
+|-c. Europe
+|-d. South America
+
+|||||
+|| What are the 3 highest mountains in the world?
+
+|+a. Mount Everest
+|+b. K2
+|-c. Annapurna II
+|+d. Kangchenjunga
+
+|||||
+|| Which of these cities are NOT a national capital?
+
+|-a. Prague
+|+b. Sydney
+|-c. Cairo
+|-d. Bangkok
+|+e. Cape Town
