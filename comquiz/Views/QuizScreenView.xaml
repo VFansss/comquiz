@@ -25,7 +25,7 @@
 
       <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
-        <TextBlock TextAlignment="Center" TextWrapping="Wrap" FontSize="15" Text="{Binding CurrentQuestion.QuestionBody}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Margin="10 0" TextAlignment="Center" TextWrapping="Wrap" FontSize="15" Text="{Binding CurrentQuestion.QuestionBody}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
       </ScrollViewer>
 
