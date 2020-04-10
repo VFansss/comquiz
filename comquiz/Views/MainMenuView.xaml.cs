@@ -1,6 +1,8 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using comquiz.ViewModels;
+using Avalonia.Media;
 
 namespace comquiz.Views
 {
@@ -15,9 +17,43 @@ namespace comquiz.Views
         {
             AvaloniaXamlLoader.Load(this);
 
-            TextBlock ohi = this.FindControl<TextBlock>("txt_about");
+            this.FindControl<TextBlock>("txt_about").Tapped += Ohi_Tapped;
 
-            ohi.Tapped += Ohi_Tapped;
+            this.FindControl<TextBlock>("txt_font").Tapped += Font_Tapped;
+
+        }
+
+        private void Font_Tapped(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+
+            FontFamily currentFont = (FontFamily)Application.Current.Resources["UIFont"];
+
+            if (currentFont.Name.Contains("Roboto",System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Set OpenDyslexic
+
+                var newFont = Application.Current.Resources["Font_OpenDyslexic"];
+
+                Application.Current.Resources["UIFont"] = newFont;
+
+            }
+            else
+            {
+                // Set Roboto
+
+                var newFont = Application.Current.Resources["Font_Roboto"];
+
+                Application.Current.Resources["UIFont"] = newFont;
+
+            }            
+
+            // Rebound main menu to force render of new font
+
+            TextBlock tappedTextBox = (TextBlock)sender;
+
+            MainMenuViewModel dataContext = (MainMenuViewModel)tappedTextBox.DataContext;
+
+            dataContext.MainDatacontext.DisplayMainMenu();
 
         }
 

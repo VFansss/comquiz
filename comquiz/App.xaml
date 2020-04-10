@@ -226,9 +226,36 @@
         </Setter>
       </Style>
       
+    <!-- FONT binding-->
+    
+    <Style Selector="Button">
+
+      <Setter Property="FontFamily" Value="{DynamicResource UIFont}"/>
+      
+    </Style>
+      
+    <Style Selector="TextBlock">
+
+      <Setter Property="FontFamily" Value="{DynamicResource UIFont}"/>
+      
+    </Style>
+      
+    <Style Selector="TextBox">
+
+      <Setter Property="FontFamily" Value="{DynamicResource UIFont}"/>
+      
+    </Style>
+      
     </Application.Styles>
 
     <Application.Resources>
+
+      <!-- FONTS -->
+
+      <FontFamily x:Key="UIFont">avares://comquiz/Assets#Roboto</FontFamily>
+      
+      <FontFamily x:Key="Font_OpenDyslexic">avares://comquiz/Assets#OpenDyslexic</FontFamily>
+      <FontFamily x:Key="Font_Roboto">avares://comquiz/Assets#Roboto</FontFamily>
 
       <!-- THEMING -->
 

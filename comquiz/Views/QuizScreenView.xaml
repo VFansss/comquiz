@@ -25,7 +25,7 @@
 
       <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
-        <TextBlock Margin="10 0" TextAlignment="Center" TextWrapping="Wrap" FontSize="15" Text="{Binding CurrentQuestion.QuestionBody}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Margin="10 0" TextAlignment="Center" TextWrapping="Wrap" FontSize="19" Text="{Binding CurrentQuestion.QuestionBody}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
       </ScrollViewer>
 
@@ -41,7 +41,7 @@
 
     <Grid Grid.Row="3">
 
-      <ListBox x:Name="lst_answers" SelectionMode="Multiple, Toggle" IsHitTestVisible="{Binding AnsweringEnabled}" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0" Cursor="Hand" Items="{Binding CurrentQuestion.PersonalizedAnswersList}">
+      <ListBox x:Name="lst_answers" SelectionMode="Multiple, Toggle" IsHitTestVisible="{Binding AnsweringEnabled}" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="15" BorderThickness="0" Cursor="Hand" Items="{Binding CurrentQuestion.PersonalizedAnswersList}">
 
         <ListBox.ItemsPanel>
 
