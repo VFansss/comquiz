@@ -5,7 +5,9 @@
              xmlns:localization="clr-namespace:comquiz.Properties"
              mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="768"
              x:Class="comquiz.Views.QuizScreenView"
-             xmlns:local="clr-namespace:comquiz">
+             xmlns:local="clr-namespace:comquiz"
+             x:Name="quizScreenUserControl"
+             >
 
   <UserControl.Resources>
     <local:SpoilAnswersConverter x:Key="SpoilAnswersConverter"/>
