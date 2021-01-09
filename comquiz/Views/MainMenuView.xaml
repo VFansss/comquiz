@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:localization="clr-namespace:comquiz.Properties"
              mc:Ignorable="d"
-             d:DesignWidth="800"
-             d:DesignHeight="600"
+             d:DesignWidth="1024"
+             d:DesignHeight="768"
              x:Class="comquiz.Views.MainMenuView"
              xmlns:local="clr-namespace:comquiz">
 
@@ -237,14 +237,21 @@
         <TextBlock x:Name="txt_font" Text="Change font"/>
       </Border>
 
-      <TextBlock Text="-"/>      
-      <TextBlock Text="{Binding Version}"/>
+      <TextBlock Text="-"/>
+
+      <Border BorderBrush="{DynamicResource HighlightBrush}" Cursor="Hand" BorderThickness="0 0 0 4" Padding="0" Margin="0 0 0 4">
+        <TextBlock x:Name="txt_controls" Text="Mouse &amp; KB Shortcuts"/>
+      </Border>
+
       <TextBlock Text="-"/>
 
       <Border BorderBrush="{DynamicResource HighlightBrush}" Cursor="Hand" BorderThickness="0 0 0 4" Padding="0" Margin="0 0 0 4">
         <TextBlock x:Name="txt_about" Text="Thanks &amp; Legal"/>
       </Border>
 
+      <TextBlock Text="-"/>
+      
+      <TextBlock Text="{Binding Version}"/>
 
     </StackPanel>
     

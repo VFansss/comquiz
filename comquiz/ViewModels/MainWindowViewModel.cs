@@ -61,5 +61,10 @@ namespace comquiz.ViewModels
             MainWindowContent = new AboutScreenViewModel();
         }
 
+        public void DisplayControlsScreen()
+        {
+            MainWindowContent = new ControlsViewModel();
+        }
+
     }
 }

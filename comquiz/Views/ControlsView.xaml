@@ -1,0 +1,75 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="comquiz.Views.ControlsView">
+
+  <UserControl.Styles>
+
+    <Style Selector="TextBlock.personal">
+      <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+  </UserControl.Styles>
+
+  <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+
+    <DockPanel Margin="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+      <DockPanel.Styles>
+
+        <Style Selector="Button">
+          <Setter Property="Margin" Value="0 10"/>
+          <Setter Property="DockPanel.Dock" Value="Top"/>
+        </Style>
+
+        <Style Selector="DockPanel > TextBlock">
+          <Setter Property="Margin" Value="0 10"/>
+          <Setter Property="Foreground" Value="{DynamicResource HighlightBrush}"/>
+          <Setter Property="HorizontalAlignment" Value="Center"/>
+          <Setter Property="TextWrapping" Value="Wrap"/>
+          <Setter Property="DockPanel.Dock" Value="Top"/>
+          <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+      </DockPanel.Styles>
+
+      <Button FontSize="14" Command="{Binding $parent[Window].DataContext.DisplayMainMenu}">
+        Return to Main Menu
+      </Button>
+
+      <TextBlock FontSize="52" Text="Mouse &amp; KB Shortcuts"/>
+
+      <TextBlock FontSize="24" Text="While you are on the quiz screen, you can use these shortcuts:"/>
+
+      <TextBlock FontSize="18" Text="(Mouse)"/>
+
+      <TextBlock>
+        Mouse central button - SHOW RIGHT ANSWERS
+      </TextBlock>
+
+      <TextBlock FontSize="18" Text="(Keyboard)"/>
+
+      <TextBlock>
+        1-9 Number buttons, 1-9 Numpad Buttons - SELECT ANSWERS
+      </TextBlock>
+
+      <TextBlock>
+        Right arrow, Enter, Enter (Numpad) - NEXT QUESTION
+      </TextBlock>
+
+      <TextBlock>
+        Spacebar, 0 on Numpad  - SHOW RIGHT ANSWERS
+      </TextBlock>
+
+      <TextBlock>
+        Esc - END THE QUIZ
+      </TextBlock>
+      
+
+    </DockPanel>
+    
+  </ScrollViewer>
+
+</UserControl>

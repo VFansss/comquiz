@@ -17,9 +17,11 @@ namespace comquiz.Views
         {
             AvaloniaXamlLoader.Load(this);
 
-            this.FindControl<TextBlock>("txt_about").Tapped += Ohi_Tapped;
+            this.FindControl<TextBlock>("txt_about").Tapped += About_Tapped;
 
             this.FindControl<TextBlock>("txt_font").Tapped += Font_Tapped;
+
+            this.FindControl<TextBlock>("txt_controls").Tapped += Controls_Tapped;
 
         }
 
@@ -57,9 +59,8 @@ namespace comquiz.Views
 
         }
 
-        private void Ohi_Tapped(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void About_Tapped(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-
             TextBlock tappedTextBox = (TextBlock)sender;
 
             MainMenuViewModel dataContext = (MainMenuViewModel)tappedTextBox.DataContext;
@@ -67,5 +68,15 @@ namespace comquiz.Views
             dataContext.MainDatacontext.DisplayAboutScreen();
 
         }
+
+        private void Controls_Tapped(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            TextBlock tappedTextBox = (TextBlock)sender;
+
+            MainMenuViewModel dataContext = (MainMenuViewModel)tappedTextBox.DataContext;
+
+            dataContext.MainDatacontext.DisplayControlsScreen();
+        }
+
     }
 }
