@@ -108,7 +108,11 @@ namespace comquiz.ViewModels
 
         public void NextQuestion()
         {
-            MarkChoosedAnswers();
+
+            if (CurrentQuestion.NumberOfRightAnswers == SelectedAnswers.Count)
+            {
+                MarkChoosedAnswers();
+            }
 
             ANSWERED questionStatus = CurrentQuestion.GetQuestionStatus();
 
