@@ -23,12 +23,33 @@ namespace comquiz.Views
 
             quizScreenUserControl.KeyUp += QuizScreenUserControl_KeyUp;
 
+            quizScreenUserControl.PointerReleased += QuizScreenUserControl_PointerReleased;
+
             quizScreenUserControl.Focus();
         }
-        
+
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+        }
+        
+        private void QuizScreenUserControl_PointerReleased(object sender, Avalonia.Input.PointerReleasedEventArgs e)
+        {
+            UserControl quizUserControl = (UserControl)sender;
+
+            QuizScreenViewModel dataContext = (QuizScreenViewModel)quizUserControl.DataContext;
+
+            if (e.InitialPressMouseButton == Avalonia.Input.MouseButton.Middle)
+            {
+                dataContext.ShowAnswers();
+            }
+
+            // Got focus again on the whole UserControl
+
+            UserControl quizScreenUserControl = this.FindControl<UserControl>("quizScreenUserControl");
+
+            quizScreenUserControl.Focus();
+
         }
 
         private void QuizScreenUserControl_KeyUp(object sender, Avalonia.Input.KeyEventArgs e)
