@@ -35,6 +35,14 @@
 
         <TextBlock Text="{x:Static localization:strings.quizScreen_rightAnswersCounter}"/>
         <TextBlock Text="{Binding CurrentQuestion.NumberOfRightAnswers}"/>
+
+        <StackPanel IsVisible="{Binding WarningForNotEnoughAnswer}" Orientation="Horizontal">
+
+          <TextBlock Foreground="Yellow" FontWeight="ExtraBold" Text=" - "/>
+          <TextBlock Foreground="Yellow" FontWeight="ExtraBold" Text="{x:Static localization:strings.quizScreen_notEnoughSelectedAnswers}"/>
+          
+        </StackPanel>
+        
         
       </StackPanel>
       

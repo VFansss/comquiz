@@ -196,7 +196,7 @@
     <value>Errore durante la lettura del QUIZ</value>
   </data>
   <data name="quizScreen_notEnoughSelectedAnswers" xml:space="preserve">
-    <value>Hai selezionato meno risposte di quanto dovresti. Mettici una pezza.</value>
+    <value>Hai selezionato meno risposte del dovuto. Selezionane altre dalla lista</value>
   </data>
   <data name="quizScreen_quizCompleted_1" xml:space="preserve">
     <value>QUIZ completato. Risultato</value>

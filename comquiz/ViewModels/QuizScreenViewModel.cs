@@ -22,7 +22,13 @@ namespace comquiz.ViewModels
         public QuestionSheet CurrentQuestion
         {
             get => _currentQuestion;
-            set => this.RaiseAndSetIfChanged(ref _currentQuestion, value);
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _currentQuestion, value);
+
+                WarningForNotEnoughAnswer = false;
+
+            }
         }
 
         short _currentQuestionNumber;
@@ -51,6 +57,13 @@ namespace comquiz.ViewModels
         {
             get => _spoilRightAnswer;
             set => this.RaiseAndSetIfChanged(ref _spoilRightAnswer, value);
+        }
+
+        bool _warningForNotEnoughAnswer = false;
+        public bool WarningForNotEnoughAnswer
+        {
+            get => _warningForNotEnoughAnswer;
+            set => this.RaiseAndSetIfChanged(ref _warningForNotEnoughAnswer, value);
         }
 
         bool QuizIsOver = false;
@@ -175,15 +188,9 @@ namespace comquiz.ViewModels
             AnsweringEnabled = false;
         }
 
-        public static void ShowNotEnoughAnswersAlert()
+        public void ShowNotEnoughAnswersAlert()
         {
-            var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
-                "( ⚆ _ ⚆ )",
-                Properties.strings.quizScreen_notEnoughSelectedAnswers,
-                MessageBox.Avalonia.Enums.ButtonEnum.Ok,
-                MessageBox.Avalonia.Enums.Icon.Info);
-
-            messageBoxStandardWindow.Show();
+            WarningForNotEnoughAnswer = true;
         }
 
 
