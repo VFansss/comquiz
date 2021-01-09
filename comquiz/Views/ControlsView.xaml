@@ -46,7 +46,7 @@
       <TextBlock FontSize="18" Text="(Mouse)"/>
 
       <TextBlock>
-        Mouse central button - SHOW RIGHT ANSWERS
+        Mouse central button (Wheel button) - SHOW RIGHT ANSWERS
       </TextBlock>
 
       <TextBlock FontSize="18" Text="(Keyboard)"/>
