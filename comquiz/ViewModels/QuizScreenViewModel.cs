@@ -53,9 +53,7 @@ namespace comquiz.ViewModels
             set => this.RaiseAndSetIfChanged(ref _spoilRightAnswer, value);
         }
 
-
-
-
+        bool QuizIsOver = false;
 
         public QuizScreenViewModel(MainWindowViewModel parentDataContext)
         {
@@ -115,7 +113,9 @@ namespace comquiz.ViewModels
                 {
                     // QUIZ FINISHED!
 
-                    DisplayQuizResult();
+                    if(!QuizIsOver) DisplayQuizResult();
+
+                    QuizIsOver = true;
 
                 }
                 else
