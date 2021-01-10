@@ -3,9 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             d:DesignWidth="800"
-             d:DesignHeight="450"
-             x:Class="comquiz.Views.AboutScreenView">
+             x:Class="comquiz.Views.ControlsView">
 
   <UserControl.Styles>
 
@@ -41,46 +39,32 @@
         Return to Main Menu
       </Button>
 
-      <TextBlock FontSize="{DynamicResource FontSizeIntrusive}" Text="Thanks &amp; Legal"/>
+      <TextBlock FontSize="{DynamicResource FontSizeIntrusive}" Text="Mouse &amp; KB Shortcuts"/>
 
-      <TextBlock Classes="personal">
-        A huge thanks to the Avalonia UI community for the tremendous help and understanding they gave me during my learning
+      <TextBlock FontSize="{DynamicResource FontSizeLarger}" Text="While you are on the quiz screen, you can use these shortcuts:"/>
+
+      <TextBlock FontSize="{DynamicResource FontSizeLarge}" Text="(Mouse)"/>
+
+      <TextBlock>
+        Mouse central button (Wheel button) - SHOW RIGHT ANSWERS
       </TextBlock>
 
-      <TextBlock Classes="personal">
-        Thank you to all those who heard me complaining during the construction of this software, and who have anxiously awaited its release (?)
-      </TextBlock>
+      <TextBlock FontSize="{DynamicResource FontSizeLarge}" Text="(Keyboard)"/>
 
-      <TextBlock Classes="personal">
-        Last but not least: thanks to you
-      </TextBlock>
-
-      <TextBlock Classes="personal" FontWeight="Bold">
-        Built with &lt;3 from Italy
+      <TextBlock>
+        1-9 Number buttons, 1-9 Numpad Buttons - SELECT ANSWERS
       </TextBlock>
 
       <TextBlock>
-        Comquiz is released under MIT Licence: Copyright (c) 2020 Alessio Di Giacomo
+        Right arrow, Enter, Enter (Numpad) - NEXT QUESTION
       </TextBlock>
 
       <TextBlock>
-        This software makes use of Avalonia UI, granted under MIT licence: Copyright (c) 2014 Steven Kirk
+        Spacebar, 0 on Numpad  - SHOW RIGHT ANSWERS
       </TextBlock>
 
       <TextBlock>
-        This software makes use of MessageBox.Avalonia, granted under MIT licence: Copyright (c) 2019 roman
-      </TextBlock>
-
-      <TextBlock>
-        This software makes use of dotnet-bundle, granted under MIT licence: Copyright (c) 2018 Sergey Khabibullin
-      </TextBlock>
-
-      <TextBlock>
-        This software makes use of Roboto font, granted under Apache License 2.0
-      </TextBlock>
-
-      <TextBlock>
-        This software makes use of Open Dyslexic font, granted under SIL Open Font License. Copyright (c) 2019-07-29, Abbie Gonzalez.
+        Esc - END THE QUIZ
       </TextBlock>
       
 

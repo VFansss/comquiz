@@ -5,7 +5,9 @@
              xmlns:localization="clr-namespace:comquiz.Properties"
              mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="768"
              x:Class="comquiz.Views.QuizScreenView"
-             xmlns:local="clr-namespace:comquiz">
+             xmlns:local="clr-namespace:comquiz"
+             x:Name="quizScreenUserControl"
+             >
 
   <UserControl.Resources>
     <local:SpoilAnswersConverter x:Key="SpoilAnswersConverter"/>
@@ -25,7 +27,7 @@
 
       <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
-        <TextBlock Margin="10 0" TextAlignment="Center" TextWrapping="Wrap" FontSize="19" Text="{Binding CurrentQuestion.QuestionBody}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Margin="10 0" TextAlignment="Center" TextWrapping="Wrap" FontSize="{DynamicResource FontSizeLarger}" Text="{Binding CurrentQuestion.QuestionBody}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
       </ScrollViewer>
 
@@ -33,6 +35,14 @@
 
         <TextBlock Text="{x:Static localization:strings.quizScreen_rightAnswersCounter}"/>
         <TextBlock Text="{Binding CurrentQuestion.NumberOfRightAnswers}"/>
+
+        <StackPanel IsVisible="{Binding WarningForNotEnoughAnswer}" Orientation="Horizontal">
+
+          <TextBlock Foreground="Yellow" FontWeight="ExtraBold" Text=" - "/>
+          <TextBlock Foreground="Yellow" FontWeight="ExtraBold" Text="{x:Static localization:strings.quizScreen_notEnoughSelectedAnswers}"/>
+          
+        </StackPanel>
+        
         
       </StackPanel>
       
@@ -41,7 +51,7 @@
 
     <Grid Grid.Row="3">
 
-      <ListBox x:Name="lst_answers" SelectionMode="Multiple, Toggle" IsHitTestVisible="{Binding AnsweringEnabled}" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="15" BorderThickness="0" Cursor="Hand" Items="{Binding CurrentQuestion.PersonalizedAnswersList}">
+      <ListBox x:Name="lst_answers" SelectionMode="Multiple, Toggle" IsHitTestVisible="{Binding AnsweringEnabled}" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="{DynamicResource FontSizeNormalPlus}"  BorderThickness="0" Cursor="Hand" Items="{Binding CurrentQuestion.PersonalizedAnswersList}">
 
         <ListBox.ItemsPanel>
 
@@ -92,10 +102,10 @@
 
       <StackPanel Grid.Row="1" Margin="30 0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
 
-        <TextBlock FontSize="15" Text="{x:Static localization:strings.quizScreen_questionCounter_1}"/>
-        <TextBlock FontSize="15" Text="{Binding CurrentQuestionNumber}"/>
-        <TextBlock FontSize="15" Text="{x:Static localization:strings.quizScreen_questionCounter_2}"/>
-        <TextBlock FontSize="15" Text="{Binding CurrentQuiz.PersonalizedQuestionsList.Count}"/>
+        <TextBlock FontSize="{DynamicResource FontSizeNormalPlus}" Text="{x:Static localization:strings.quizScreen_questionCounter_1}"/>
+        <TextBlock FontSize="{DynamicResource FontSizeNormalPlus}" Text="{Binding CurrentQuestionNumber}"/>
+        <TextBlock FontSize="{DynamicResource FontSizeNormalPlus}" Text="{x:Static localization:strings.quizScreen_questionCounter_2}"/>
+        <TextBlock FontSize="{DynamicResource FontSizeNormalPlus}" Text="{Binding CurrentQuiz.PersonalizedQuestionsList.Count}"/>
 
       </StackPanel>
 

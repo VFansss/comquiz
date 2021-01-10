@@ -22,7 +22,13 @@ namespace comquiz.ViewModels
         public QuestionSheet CurrentQuestion
         {
             get => _currentQuestion;
-            set => this.RaiseAndSetIfChanged(ref _currentQuestion, value);
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _currentQuestion, value);
+
+                WarningForNotEnoughAnswer = false;
+
+            }
         }
 
         short _currentQuestionNumber;
@@ -53,9 +59,14 @@ namespace comquiz.ViewModels
             set => this.RaiseAndSetIfChanged(ref _spoilRightAnswer, value);
         }
 
+        bool _warningForNotEnoughAnswer = false;
+        public bool WarningForNotEnoughAnswer
+        {
+            get => _warningForNotEnoughAnswer;
+            set => this.RaiseAndSetIfChanged(ref _warningForNotEnoughAnswer, value);
+        }
 
-
-
+        bool QuizIsOver = false;
 
         public QuizScreenViewModel(MainWindowViewModel parentDataContext)
         {
@@ -97,7 +108,11 @@ namespace comquiz.ViewModels
 
         public void NextQuestion()
         {
-            MarkChoosedAnswers();
+
+            if (CurrentQuestion.NumberOfRightAnswers == SelectedAnswers?.Count)
+            {
+                MarkChoosedAnswers();
+            }
 
             ANSWERED questionStatus = CurrentQuestion.GetQuestionStatus();
 
@@ -115,7 +130,9 @@ namespace comquiz.ViewModels
                 {
                     // QUIZ FINISHED!
 
-                    DisplayQuizResult();
+                    if(!QuizIsOver) DisplayQuizResult();
+
+                    QuizIsOver = true;
 
                 }
                 else
@@ -175,15 +192,9 @@ namespace comquiz.ViewModels
             AnsweringEnabled = false;
         }
 
-        public static void ShowNotEnoughAnswersAlert()
+        public void ShowNotEnoughAnswersAlert()
         {
-            var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
-                "( ⚆ _ ⚆ )",
-                Properties.strings.quizScreen_notEnoughSelectedAnswers,
-                MessageBox.Avalonia.Enums.ButtonEnum.Ok,
-                MessageBox.Avalonia.Enums.Icon.Info);
-
-            messageBoxStandardWindow.Show();
+            WarningForNotEnoughAnswer = true;
         }
 
 

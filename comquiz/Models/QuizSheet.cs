@@ -188,7 +188,7 @@ namespace comquiz
                 // Sixth
                 equalPieces = 6;
 
-                if (quizPart == QUIZPARTIAL.Fifth)
+                if (quizPart == QUIZPARTIAL.Sixth)
                 {
                     wantTheLastPiece = true;
                 }
