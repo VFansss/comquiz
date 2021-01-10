@@ -261,6 +261,22 @@
       
       <TextBlock Text="{Binding Version}"/>
 
+      <TextBlock Text="-"/>
+
+      <Border Cursor="Arrow" BorderThickness="0">
+        <TextBlock Text="Font size "/>
+      </Border>
+      
+      <Border>
+        <TextBlock x:Name="txt_fontsizeDown" Text="Decrease"/>
+      </Border>
+
+      <TextBlock Text=" "/>
+
+      <Border>
+        <TextBlock x:Name="txt_fontsizeUp" Text="Increase"/>
+      </Border>
+
     </StackPanel>
     
 

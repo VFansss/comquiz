@@ -6,6 +6,13 @@ using Avalonia.Media;
 
 namespace comquiz.Views
 {
+    public enum FONT_OPERATION
+    {
+        Decrease,
+        Increase
+    }
+
+
     public class MainMenuView : UserControl
     {
         public MainMenuView()
@@ -22,6 +29,47 @@ namespace comquiz.Views
             this.FindControl<TextBlock>("txt_font").Tapped += Font_Tapped;
 
             this.FindControl<TextBlock>("txt_controls").Tapped += Controls_Tapped;
+
+            this.FindControl<TextBlock>("txt_fontsizeDown").Tapped += FontSizeDown_Tapped;
+
+            this.FindControl<TextBlock>("txt_fontsizeUp").Tapped += FontSizeUp_Tapped;
+
+        }
+
+        private void FontSizeDown_Tapped(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            FontSizeAdjust(FONT_OPERATION.Decrease);
+        }
+
+        private void FontSizeUp_Tapped(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            FontSizeAdjust(FONT_OPERATION.Increase);
+        }
+
+        private void FontSizeAdjust(FONT_OPERATION _OPERATION)
+        {
+            if(_OPERATION == FONT_OPERATION.Increase)
+            {
+                Application.Current.Resources["FontSizeSmall"] = ((double)Application.Current.Resources["FontSizeSmall"]) + 2;
+                Application.Current.Resources["FontSizeNormal"] = ((double)Application.Current.Resources["FontSizeNormal"]) + 2;
+                Application.Current.Resources["FontSizeNormalPlus"] = ((double)Application.Current.Resources["FontSizeNormalPlus"]) + 2;
+                Application.Current.Resources["FontSizeLarge"] = ((double)Application.Current.Resources["FontSizeLarge"]) + 2;
+                Application.Current.Resources["FontSizeLarger"] = ((double)Application.Current.Resources["FontSizeLarger"]) + 2;
+                Application.Current.Resources["FontSizeEnormous"] = ((double)Application.Current.Resources["FontSizeEnormous"]) + 2;
+                Application.Current.Resources["FontSizeIntrusive"] = ((double)Application.Current.Resources["FontSizeIntrusive"]) + 2;
+            }
+            else
+            {
+                if (((double)Application.Current.Resources["FontSizeNormal"]) <= 8) return;
+
+                Application.Current.Resources["FontSizeSmall"] = ((double)Application.Current.Resources["FontSizeSmall"]) - 2;
+                Application.Current.Resources["FontSizeNormal"] = ((double)Application.Current.Resources["FontSizeNormal"]) - 2;
+                Application.Current.Resources["FontSizeNormalPlus"] = ((double)Application.Current.Resources["FontSizeNormalPlus"]) - 2;
+                Application.Current.Resources["FontSizeLarge"] = ((double)Application.Current.Resources["FontSizeLarge"]) - 2;
+                Application.Current.Resources["FontSizeLarger"] = ((double)Application.Current.Resources["FontSizeLarger"]) - 2;
+                Application.Current.Resources["FontSizeEnormous"] = ((double)Application.Current.Resources["FontSizeEnormous"]) - 2;
+                Application.Current.Resources["FontSizeIntrusive"] = ((double)Application.Current.Resources["FontSizeIntrusive"]) - 2;
+            }
 
         }
 
