@@ -109,7 +109,7 @@ namespace comquiz.ViewModels
         public void NextQuestion()
         {
 
-            if (CurrentQuestion.NumberOfRightAnswers == SelectedAnswers.Count)
+            if (CurrentQuestion.NumberOfRightAnswers == SelectedAnswers?.Count)
             {
                 MarkChoosedAnswers();
             }
