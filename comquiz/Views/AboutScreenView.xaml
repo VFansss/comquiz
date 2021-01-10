@@ -10,7 +10,7 @@
   <UserControl.Styles>
 
     <Style Selector="TextBlock.personal">
-      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="FontSize" Value="{DynamicResource FontSizeNormalPlus}"/>
     </Style>
 
   </UserControl.Styles>
@@ -37,11 +37,11 @@
 
       </DockPanel.Styles>
 
-      <Button FontSize="14" Command="{Binding $parent[Window].DataContext.DisplayMainMenu}">
+      <Button Command="{Binding $parent[Window].DataContext.DisplayMainMenu}">
         Return to Main Menu
       </Button>
 
-      <TextBlock FontSize="52" Text="Thanks &amp; Legal"/>
+      <TextBlock FontSize="{DynamicResource FontSizeIntrusive}" Text="Thanks &amp; Legal"/>
 
       <TextBlock Classes="personal">
         A huge thanks to the Avalonia UI community for the tremendous help and understanding they gave me during my learning

@@ -307,7 +307,11 @@
 
       <sys:Double x:Key="FontSizeSmall">12</sys:Double>
       <sys:Double x:Key="FontSizeNormal">14</sys:Double>
+      <sys:Double x:Key="FontSizeNormalPlus">15</sys:Double>
       <sys:Double x:Key="FontSizeLarge">18</sys:Double>
+      <sys:Double x:Key="FontSizeLarger">20</sys:Double>
+      <sys:Double x:Key="FontSizeEnormous">30</sys:Double>
+      <sys:Double x:Key="FontSizeIntrusive">50</sys:Double>
 
       <sys:Double x:Key="ScrollBarThickness">20</sys:Double>
 

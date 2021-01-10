@@ -25,7 +25,7 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
 
-      <TextBlock TextAlignment="Center" FontSize="20" Margin="0 0 0 10" Text="{x:Static localization:strings.mainMenu_toStartMessage}"/>
+      <TextBlock TextAlignment="Center" FontSize="{DynamicResource FontSizeLarger}"  Margin="0 0 0 10" Text="{x:Static localization:strings.mainMenu_toStartMessage}"/>
 
       <Button Background="Transparent" HorizontalAlignment="Center" Grid.Row="1" Command="{Binding PickQuizFromFile}" CommandParameter="{Binding $parent[Window]}" Content="{x:Static localization:strings.mainMenu_chooseFileButtonLabel}" />
 
@@ -33,7 +33,7 @@
 
         <TextBlock Text="{x:Static localization:strings.mainMenu_quizLoadedLabel}" HorizontalAlignment="Center"/>
 
-        <TextBlock Foreground="{DynamicResource ThemeBorderMidBrush}" Margin="10 0" FontSize="30" Text="{Binding $parent[Window].DataContext.CurrentQuiz.Title}" HorizontalAlignment="Center"/>
+        <TextBlock Foreground="{DynamicResource ThemeBorderMidBrush}" Margin="10 0" FontSize="{DynamicResource FontSizeEnormous}"  Text="{Binding $parent[Window].DataContext.CurrentQuiz.Title}" HorizontalAlignment="Center"/>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
@@ -216,7 +216,7 @@
 
         </StackPanel>
 
-        <Button FontSize="18" Grid.Row="1" Margin="0 25 0 0" HorizontalAlignment="Center" Command="{Binding $parent[Window].DataContext.DisplayQuizScreen}" Content="{x:Static localization:strings.mainMenu_displayQuizScreen}"/>
+        <Button FontSize="{DynamicResource FontSizeLarge}" Grid.Row="1" Margin="0 25 0 0" HorizontalAlignment="Center" Command="{Binding $parent[Window].DataContext.DisplayQuizScreen}" Content="{x:Static localization:strings.mainMenu_displayQuizScreen}"/>
         
       </StackPanel>
       
@@ -230,22 +230,30 @@
           <Setter Property="Foreground" Value="{DynamicResource HighlightBrush}"/>
           <Setter Property="Margin" Value="5"/>
         </Style>
+
+        <Style Selector="Border">
+          <Setter Property="BorderBrush" Value="{DynamicResource HighlightBrush}"/>
+          <Setter Property="BorderThickness" Value="0 0 0 4"/>
+          <Setter Property="Padding" Value="0"/>
+          <Setter Property="Margin" Value="0 0 0 4"/>
+          <Setter Property="Cursor" Value="Hand"/>
+        </Style>
         
       </StackPanel.Styles>
 
-      <Border BorderBrush="{DynamicResource HighlightBrush}" Cursor="Hand" BorderThickness="0 0 0 4" Padding="0" Margin="0 0 0 4">
+      <Border>
         <TextBlock x:Name="txt_font" Text="Change font"/>
       </Border>
 
       <TextBlock Text="-"/>
 
-      <Border BorderBrush="{DynamicResource HighlightBrush}" Cursor="Hand" BorderThickness="0 0 0 4" Padding="0" Margin="0 0 0 4">
+      <Border>
         <TextBlock x:Name="txt_controls" Text="Mouse &amp; KB Shortcuts"/>
       </Border>
 
       <TextBlock Text="-"/>
 
-      <Border BorderBrush="{DynamicResource HighlightBrush}" Cursor="Hand" BorderThickness="0 0 0 4" Padding="0" Margin="0 0 0 4">
+      <Border>
         <TextBlock x:Name="txt_about" Text="Thanks &amp; Legal"/>
       </Border>
 
