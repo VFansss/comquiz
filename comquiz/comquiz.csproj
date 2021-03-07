@@ -31,6 +31,9 @@
     <AvaloniaResource Remove="Views\QuizScreenView.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\comquiz-icon.ico" />
+    <None Remove="Assets\OpenDyslexic-Regular.otf" />
+    <None Remove="Assets\Roboto-Regular.ttf" />
     <None Remove="Views\AboutScreenView.xaml" />
     <None Remove="Views\MainMenuView.xaml" />
     <None Remove="Views\QuizScreenView.xaml" />
@@ -47,6 +50,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Assets\comquiz-icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\OpenDyslexic-Regular.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Roboto-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainMenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
